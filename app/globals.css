@@ -1,6 +1,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --main-color: #EE7838;
+  --box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 8px;
+}
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,33 +21,97 @@
   }
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
   background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeSlide {
+  animation: fadeSlide 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}
+
+.activeTextColor {
+  color: var(--main-color);
+}
+
+.activeBgColor {
+  background-color: var(--main-color);
+}
+
+.shadowEffect {
+  box-shadow: var(--box-shadow);
+}
+
+.onHover {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* pseudo-element for animation */
+.onHover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+      transparent 50%,
+      var(--main-color, #ffb400) 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  z-index: -1;
+  transition: background-position 0.6s ease;
+}
+
+/* animate fill from both sides */
+.onHover:hover::before {
+  background-position: right bottom;
+}
+
+/* optional: text color change */
+.onHover:hover {
+  color: #fff;
+  box-shadow: none;
+}
+
+.react-multiple-carousel__arrow {
+  background: var(--main-color) !important;
+}
+
+.textColor {
+  color: var(--main-color);
+}
+
+.headingColor {
+  color: var(--foreground);
 }
