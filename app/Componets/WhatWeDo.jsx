@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
 import { FaBrush, FaCode, FaBullhorn } from "react-icons/fa";
@@ -25,10 +26,31 @@ const WhatWeDo = () => {
             desc: "Boost your online presence with data-driven marketing strategies that deliver results.",
             delay: 0.3,
         },
+         {
+            title: "Creative Design",
+            icon: <FaBrush size={40} />,
+            color: "primary",
+            desc: "Our team crafts stunning visuals and brand identities that leave a lasting impression.",
+            delay: 0.1,
+        },
+        {
+            title: "Web Development",
+            icon: <FaCode size={40} />,
+            color: "success",
+            desc: "We build fast, responsive, and scalable websites tailored to your business needs.",
+            delay: 0.2,
+        },
+        {
+            title: "Digital Marketing",
+            icon: <FaBullhorn size={40} />,
+            color: "warning",
+            desc: "Boost your online presence with data-driven marketing strategies that deliver results.",
+            delay: 0.3,
+        },
     ];
 
     return (
-        <section className="py-5 bg-light position-relative" id="what-we-do">
+        <section className="py-5 bg-light position-relative shadow z-2" id="what-we-do">
             <div className="container text-center">
                 <motion.h2
                     className="fw-bold display-6 mb-3 text-dark"
@@ -56,14 +78,15 @@ const WhatWeDo = () => {
                     {services.map((service) => (
                         <motion.div
                             key={service.title}
-                            className="col-md-4"
+                            className={`col-md-4`} 
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: service.delay, duration: 0.6 }}
                             viewport={{ once: true }}
+
                         >
                             <div
-                                className="card border-0 shadow-lg h-100 position-relative overflow-hidden rounded-4 bg-white transition-all"
+                                className={`card border-0 shadow-lg h-100 position-relative overflow-hidden rounded-4 bg-white transition-all border-end border-start border-3 border-${service.color}`}
                                 style={{
                                     transition: "all 0.3s ease",
                                     boxShadow: "0 8px 24px rgba(0,0,0,0.08)",

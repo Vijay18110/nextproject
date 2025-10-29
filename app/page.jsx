@@ -5,6 +5,7 @@ import Button from "./Shared/Button";
 import Slider from "./ExternalLib/Carousel/Carousel";
 import HeroSlider from "./Componets/HeroSection";
 import WhatWeDo from "./Componets/WhatWeDo";
+import Products from "./Componets/ProductSection/ProductSection";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
@@ -14,13 +15,11 @@ export default function HomePage() {
   return (
     <main className=" bg-white text-dark">
       {/* 🌄 Fixed Parallax Section */}
-
       <HeroSlider />
-
-
       <WhatWeDo />
+      <Products/>
       {/* 🌀 Info Section */}
-      <section className="position-relative text-center bg-white  min-vh-100 d-flex align-items-center justify-content-center">
+      <section className="position-relative text-center bg-white z-2  min-vh-100 d-flex align-items-center justify-content-center">
         <div className="container">
           <h2 className="display-5 fw-bold mb-4 text-dark">
             Immersive Experiences Like Never Before
@@ -40,7 +39,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* 🔍 Final Section */}
-      <section className="py-5  text-center min-vh-100 d-flex flex-column align-items-center justify-content-center bg-white position-relative">
+      <section className="py-5 z-2  text-center min-vh-100 d-flex flex-column align-items-center justify-content-center bg-white position-relative">
         <div className="container">
           <h2 className="display-5 fw-bold text-dark mb-4">Take a closer look.</h2>
           <p className="lead text-secondary mb-4">

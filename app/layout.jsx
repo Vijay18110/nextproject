@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./globals.css";
 import Header from "./Componets/header";
-import Footer from "./Componets/footer";
+import Footer from './Componets/Footer/footer'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,9 +23,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`} cz-shortcut-listen="true">
-
         <Header />
-        {/* <div className="" style={{ marginTop: "70px" }}></div> */}
+        {/* <div className=" bg-light" style={{zIndex:"999", marginTop: "70px" ; }}></div> */}
         {children}
         <Footer />
       </body>
