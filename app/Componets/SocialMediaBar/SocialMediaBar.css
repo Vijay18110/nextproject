@@ -1,0 +1,50 @@
+.social-bar {
+    z-index: 1050;
+    left: -10px;
+}
+
+.iconContainer {
+    width: 60px;
+    display: flex;
+    justify-content: end;
+    height: 50px;
+    align-items: center;
+    border-radius: 0rem 25rem 25rem 0rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.iconContainer:hover {
+    width: 140px;
+}
+
+.iconBg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    color: rgb(116, 32, 32);
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* 🔄 Rotate on hover */
+.iconContainer:hover .iconBg {
+    animation: rotate 0.5s ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

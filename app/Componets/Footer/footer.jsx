@@ -16,6 +16,7 @@ import {
   FaYoutube,
   FaArrowUp,
 } from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -51,11 +52,12 @@ const Footer = () => {
           <h3>HELPFUL LINKS</h3>
           <div className={styles.divider}></div>
           <ul>
-            <li>Our Last News</li>
-            <li>Pricing Plans</li>
-            <li>Contacts</li>
-            <li>Help Center</li>
-            <li>Privacy Policy</li>
+            <li><Link href="/Products">Products</Link></li>
+            <li><Link href="/About">About Us</Link></li>
+            <li><Link href="/Contact">Contacts</Link></li>
+            <li><Link href="/Blog">Blog</Link></li>
+            <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
+
           </ul>
         </div>
 
@@ -65,16 +67,20 @@ const Footer = () => {
           <div className={styles.divider}></div>
           <ul className={styles.contactList}>
             <li>
-              <FaEnvelope /> yourmail@domain.com
+              <Link href="mailto:yourmail@domain.com" className={styles.contactItem}>
+                <FaEnvelope /> yourmail@domain.com
+              </Link>
             </li>
             <li>
               <FaMapMarkerAlt /> USA 27th Brooklyn NY
             </li>
             <li>
-              <FaPhone /> +2(11)123456789
+              <Link href="tel:+919628554907" className={styles.contactItem}>
+                <FaPhone /> +91 9628554907
+              </Link>
             </li>
           </ul>
-          <Button className={styles.contactBtn} text="Get in Touch"/>
+          <Button className={styles.contactBtn} text="Get in Touch" />
         </div>
 
         {/* SUBSCRIBE */}
@@ -94,16 +100,39 @@ const Footer = () => {
 
       <div className={styles.bottomBar}>
         <p>©RentState 2024. All Rights Reserved.</p>
-        <div className={styles.socialIcons}>
-          <FaFacebookF />
-          <FaXTwitter />
-          <FaInstagram />
-          <FaTiktok />
-          <FaYoutube />
-        </div>
+        <SocialIcons />
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
+
+
+const SocialIcons = () => {
+  const socials = [
+    { icon: <FaFacebookF />, link: "https://facebook.com" },
+    { icon: <FaXTwitter />, link: "https://x.com" },
+    { icon: <FaInstagram />, link: "https://instagram.com" },
+    { icon: <FaTiktok />, link: "https://tiktok.com" },
+    { icon: <FaYoutube />, link: "https://youtube.com" },
+  ];
+
+  return (
+    <div className={styles.socialIcons}>
+      {socials.map((s, i) => (
+        <a
+          key={i}
+          href={s.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.iconLink}
+        >
+          {s.icon}
+        </a>
+      ))}
+    </div>
+  );
+};
+

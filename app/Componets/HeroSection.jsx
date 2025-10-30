@@ -15,8 +15,8 @@ export const sliderData = [
   },
   {
     id: 2,
-    type: "video",
-    src: "1.mp4",
+    type: "image",
+    src: "/images/all/1.jpg",
     title: "Immersive Experience",
     subtitle: "A new dimension of computing.",
     bgColor: "#000000",
@@ -63,7 +63,7 @@ const HeroSlider = () => {
       if (!vid) return;
       if (i === index) {
         vid.currentTime = 0;
-        vid.play().catch(() => {});
+        vid.play().catch(() => { });
         setIsPlaying(true);
       } else {
         vid.pause();
@@ -157,14 +157,14 @@ const HeroSlider = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="display-3 fw-bold"
+                className="display-3 fw-bold title"
               >
                 {slide.title}
               </motion.h1>
               <motion.h5
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="fw-normal fs-3"
+                className="fw-normal fs-3 subtitle"
               >
                 {slide.subtitle}
               </motion.h5>

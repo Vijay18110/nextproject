@@ -1,0 +1,27 @@
+.iconCont {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    /* or use var(--bg-card) for theme consistency */
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.iconCont:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Optional – for inner icon color animation */
+.iconCont svg {
+    transition: color 0.3s ease;
+}
+
+.iconCont:hover svg {
+    color: var(--primary, #007bff);
+}

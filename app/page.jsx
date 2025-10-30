@@ -6,6 +6,7 @@ import Slider from "./ExternalLib/Carousel/Carousel";
 import HeroSlider from "./Componets/HeroSection";
 import WhatWeDo from "./Componets/WhatWeDo";
 import Products from "./Componets/ProductSection/ProductSection";
+import { products } from "./StaticData/Products";
 
 export default function HomePage() {
   const { scrollY } = useScroll();
@@ -13,11 +14,11 @@ export default function HomePage() {
   const opacity = useTransform(scrollY, [0, 150, 300], [1, 0.9, 0.7]);
 
   return (
-    <main className=" bg-white text-dark">
+    <main className=" bg-white text-dark" style={{ marginTop: "-75px" }}>
       {/* 🌄 Fixed Parallax Section */}
       <HeroSlider />
       <WhatWeDo />
-      <Products/>
+      <Products products={products} title="Featured Products" />
       {/* 🌀 Info Section */}
       <section className="position-relative text-center bg-white z-2  min-vh-100 d-flex align-items-center justify-content-center">
         <div className="container">

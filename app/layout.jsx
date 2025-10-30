@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Header from "./Componets/header";
 import Footer from './Componets/Footer/footer'
+import SocialMediaBar from "./Componets/SocialMediaBar/SocialMediaBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,9 +24,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`} cz-shortcut-listen="true">
+        <SocialMediaBar />
         <Header />
-        {/* <div className=" bg-light" style={{zIndex:"999", marginTop: "70px" ; }}></div> */}
-        {children}
+        <div className="bg-light" style={{ marginTop: "75px" }}>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
