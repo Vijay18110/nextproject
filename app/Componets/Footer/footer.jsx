@@ -37,14 +37,7 @@ const Footer = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaque
             ipsa quae ab illo inventore veritatis et quasi architecto.
           </p>
-          <div className={styles.appButtons}>
-            <button className={styles.appBtn}>
-              <FaApple /> On Apple Store
-            </button>
-            <button className={styles.appBtn}>
-              <FaGooglePlay /> On Google Play
-            </button>
-          </div>
+
         </div>
 
         {/* HELPFUL LINKS */}
@@ -55,7 +48,6 @@ const Footer = () => {
             <li><Link href="/Products">Products</Link></li>
             <li><Link href="/About">About Us</Link></li>
             <li><Link href="/Contact">Contacts</Link></li>
-            <li><Link href="/Blog">Blog</Link></li>
             <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
 
           </ul>

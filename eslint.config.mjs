@@ -10,6 +10,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+   {
+  "extends": ["next"],
+  "rules": {
+    "multiline-comment-style": "off",
+    "spaced-comment": "off"
+  }
+} 
   ]),
 ]);
 

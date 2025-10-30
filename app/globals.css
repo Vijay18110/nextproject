@@ -115,6 +115,7 @@ body {
 
 .react-multiple-carousel__arrow {
   background: var(--main-color) !important;
+  z-index: 1 !important;
 }
 
 .textColor {
@@ -177,3 +178,31 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-primary {
+  color: var(--main-color) !important;
+}
+
+.btn-dark {
+  background-color: #111 !important;
+  border: none;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.border-primary {
+  border-color: var(--main-color) !important;
+}
+
+ .btn-orange {
+          background-color: #ff6600;
+        }
+        .btn-orange:hover {
+          background-color: #e65c00;
+        }

@@ -1,245 +1,120 @@
 "use client";
+
 import React, { useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-    FaRupeeSign,
-    FaPhoneAlt,
-    FaWhatsapp,
-    FaIndustry,
-    FaCubes,
-    FaWeightHanging,
-    FaCheckCircle,
-} from "react-icons/fa";
-import Link from "next/link";
+import ReactImageMagnify from "react-image-magnify";
+import { FaShoppingCart, FaStar } from "react-icons/fa";
+import Image from "next/image";
+
+// Sample images (replace with your own)
+const productImages = [
+  "/images/all/1.jpg",
+  "/images/all/2.jpg",
+  "/images/all/3.jpg",
+  "/images/all/4.jpg",
+  "/images/all/6.jpg",
+];
 
 const ProductDetails = () => {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
+  const [activeImg, setActiveImg] = useState(productImages[0]);
 
-    const handleChange = (e) =>
-        setForm({ ...form, [e.target.name]: e.target.value });
+  return (
+    <div className="container-fluid py-5">
+      <div className="row align-items-start gy-4">
+        {/* 🔹 Left: Vertical Thumbnails */}
+        <div className="col-md-2 d-flex flex-md-column gap-3 align-items-center">
+          {productImages.map((img) => (
+            <motion.div
+              key={img}
+              whileHover={{ scale: 1.05 }}
+              className={`border rounded-3 overflow-hidden cursor-pointer shadow-sm ${
+                activeImg === img ? "border-primary border-3" : "border-light"
+              }`}
+              onClick={() => setActiveImg(img)}
+              style={{ width: "70px", height: "70px" }}
+            >
+              <Image
+                src={img}
+                alt="Product Thumbnail"
+                width={70}
+                height={70}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </motion.div>
+          ))}
+        </div>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert("Request Sent!");
-    };
-    const whatsappUrl = `https://wa.me/9628554907?text=${whatsappMessage}`;
-    return (
-        <section className="container-fluid py-5 bg-light">
-            <div className="row g-4">
-                {/* ---------- LEFT SECTION ---------- */}
-                <div className="col-lg-8">
-                    <motion.div
-                        className="card border-0 shadow-lg rounded-4 p-4 bg-white"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h4 className="fw-bold text-uppercase text-primary mb-1">
-                            Premium Smart LED TV 55" – 4K Ultra HD
-                        </h4>
-                        <p className="text-muted mb-3">Brand: Samsung | Model: QN55Q60D</p>
+        {/* 🔹 Center: Main Image with Zoom */}
+        <div className="col-md-5 text-center">
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: "Main Product",
+                isFluidWidth: true,
+                src: activeImg,
+              },
+              largeImage: {
+                src: activeImg,
+                width: 1200,
+                height: 1200,
+              },
+              enlargedImageContainerStyle: { zIndex: 9 },
+              lensStyle: { backgroundColor: "rgba(0,0,0,.1)" },
+            }}
+          />
+        </div>
 
-                        {/* Price Box */}
-                        <div className="d-flex justify-content-between align-items-center bg-gradient bg-light p-3 rounded-3 mb-4">
-                            <div>
-                                <span className="fw-semibold text-secondary me-2">Price:</span>
-                                <span className="fs-5 text-success fw-bold">
-                                    <FaRupeeSign /> 62,999.00
-                                </span>
-                            </div>
-                            <small className="text-muted">SKU: SAM-55Q60D</small>
-                        </div>
+        {/* 🔹 Right: Product Details */}
+        <div className="col-md-5">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <h2 className="fw-bold mb-2">Smart Bench Pro</h2>
+            <div className="d-flex align-items-center mb-3">
+              <FaStar className="text-warning me-1" />
+              <FaStar className="text-warning me-1" />
+              <FaStar className="text-warning me-1" />
+              <FaStar className="text-warning me-1" />
+              <FaStar className="text-secondary" />
+              <span className="ms-2 text-muted">(134 Reviews)</span>
+            </div>
 
-                        {/* Product Image */}
-                        <motion.div
-                            className="text-center mb-4"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <Image
-                                src="https://images.unsplash.com/photo-1587574293340-e0011c7d7e4b"
-                                alt="Smart TV"
-                                width={800}
-                                height={450}
-                                className="rounded-4 img-fluid shadow-sm"
-                            />
-                        </motion.div>
+            <h3 className="text-primary fw-bold mb-3">$599.00</h3>
+            <p className="text-muted mb-4">
+              Experience the future of smart furniture with the Smart Bench Pro —
+              built with durable materials, integrated charging ports, and a
+              modern design for both comfort and functionality.
+            </p>
 
-                        {/* Key Specs */}
-                        <div className="row text-center border-top border-bottom py-3 mb-4">
-                            {[
-                                { icon: <FaIndustry />, title: "Brand", value: "Samsung" },
-                                { icon: <FaCubes />, title: "Screen Size", value: "55 Inches" },
-                                { icon: <FaWeightHanging />, title: "Resolution", value: "4K UHD" },
-                                { icon: <FaCheckCircle />, title: "Warranty", value: "2 Years" },
-                            ].map((item, index) => (
-                                <div key={index} className="col-6 col-md-3">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 15 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1 }}
-                                    >
-                                        <div className="text-primary fs-4 mb-1">{item.icon}</div>
-                                        <p className="small text-muted mb-0">{item.title}</p>
-                                        <p className="fw-semibold mb-0">{item.value}</p>
-                                    </motion.div>
-                                </div>
-                            ))}
-                        </div>
+            <div className="d-flex gap-3 mb-4">
+              <button className="btn btn-dark px-4 py-2 rounded-4 fw-semibold d-flex align-items-center gap-2">
+                <FaShoppingCart /> Add to Cart
+              </button>
+              <button className="btn btn-outline-secondary px-4 py-2 rounded-4 fw-semibold">
+                Buy Now
+              </button>
+            </div>
 
-                        {/* Features Section */}
-                        <ProductFeatures />
-                    </motion.div>
-                </div>
-
-                {/* ---------- RIGHT SECTION (Contact Form) ---------- */}
-                <div className="col-lg-4">
-                    <motion.div
-                        className="card border-0 shadow-lg rounded-4 p-4 bg-white"
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h5 className="fw-bold mb-3 text-dark">Request Product Info</h5>
-
-                        {/* Buttons */}
-                        <div className="d-flex gap-2 mb-3">
-                            <Link className="btn btn-primary flex-fill d-flex align-items-center justify-content-center gap-2 shadow-sm" href="tel:+919628554907">  <FaPhoneAlt />
-
-                                Call
-
-                            </Link>
-                            <Link href={whatsappUrl} className="btn btn-outline-success flex-fill d-flex align-items-center justify-content-center gap-2">
-                                <FaWhatsapp />WhatsApp
-                            </Link>
-                        </div>
-
-                        {/* Contact Form */}
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-floating mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control rounded-3"
-                                    id="name"
-                                    placeholder="Your Name"
-                                    name="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <label htmlFor="name">Name</label>
-                            </div>
-
-                            <div className="form-floating mb-3">
-                                <input
-                                    type="email"
-                                    className="form-control rounded-3"
-                                    id="email"
-                                    placeholder="Email Address"
-                                    name="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <label htmlFor="email">Email</label>
-                            </div>
-
-                            <div className="form-floating mb-3">
-                                <input
-                                    type="tel"
-                                    className="form-control rounded-3"
-                                    id="phone"
-                                    placeholder="Phone Number"
-                                    name="phone"
-                                    value={form.phone}
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <label htmlFor="phone">Phone</label>
-                            </div>
-
-                            <div className="form-floating mb-4">
-                                <textarea
-                                    className="form-control rounded-3"
-                                    placeholder="Leave a message"
-                                    id="message"
-                                    style={{ height: "100px" }}
-                                    name="message"
-                                    value={form.message}
-                                    onChange={handleChange}
-                                ></textarea>
-                                <label htmlFor="message">Message</label>
-                            </div>
-
-                            <motion.button
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                type="submit"
-                                className="btn btn-primary w-100 py-2 fw-semibold shadow-sm"
-                            >
-                                Send Request
-                            </motion.button>
-                        </form>
-                    </motion.div>
-                </div>
-            </div >
-        </section >
-    );
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h5 className="fw-semibold">Product Details</h5>
+              <ul className="list-unstyled text-muted mt-2">
+                <li>✅ Premium Wood & Metal Design</li>
+                <li>✅ Built-in Wireless Charger</li>
+                <li>✅ Waterproof Coating</li>
+                <li>✅ 2-Year Warranty</li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ProductDetails;
-
-// ---------- FEATURES SECTION ----------
-const features = [
-    {
-        title: "4K Ultra HD Display",
-        desc: "Crisp and lifelike visuals with Quantum Dot technology for enhanced color contrast.",
-    },
-    {
-        title: "Smart Connectivity",
-        desc: "Built-in Wi-Fi, multiple HDMI ports, and voice assistant compatibility.",
-    },
-    {
-        title: "Power Efficient",
-        desc: "Energy-saving technology ensures longer lifespan with reduced consumption.",
-    },
-    {
-        title: "Premium Audio",
-        desc: "Dolby Digital+ speakers with deep bass and surround sound experience.",
-    },
-    {
-        title: "Elegant Design",
-        desc: "Slim bezel, lightweight frame, and wall-mount support for a modern setup.",
-    },
-];
-
-const ProductFeatures = () => (
-    <div className="mt-4">
-        <h5 className="fw-bold mb-3 text-dark border-bottom pb-2">
-            Product Highlights
-        </h5>
-        <div className="row g-3">
-            {features.map((item, i) => (
-                <motion.div
-                    key={i}
-                    className="col-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                    <div className="p-3 rounded-4 shadow-sm border bg-white hover-shadow-sm">
-                        <h6 className="fw-semibold text-primary mb-1">{item.title}</h6>
-                        <p className="text-secondary mb-0 small">{item.desc}</p>
-                    </div>
-                </motion.div>
-            ))}
-        </div>
-    </div>
-);

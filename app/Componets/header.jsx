@@ -1,99 +1,205 @@
+ 
+
+
+/* eslint-disable react/no-unknown-property */
 "use client";
 
 import React, { useState } from "react";
 import {
-    FaHome,
-    FaBoxOpen,
-    FaInfoCircle,
-    FaPhoneAlt,
-    FaUserAlt,
-    FaBars,
-    FaTimes,
+  FaHome,
+  FaBoxOpen,
+  FaInfoCircle,
+  FaPhoneAlt,
+  FaUserAlt,
+  FaBars,
+  FaTimes,
+  FaChevronDown,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
-    const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
-    const navLinks = [
-        { name: "Home", href: "/", icon: <FaHome /> },
-        { name: "Products", href: "/Products", icon: <FaBoxOpen /> },
-        { name: "About", href: "/About", icon: <FaInfoCircle /> },
-        { name: "Contact", href: "/Contact", icon: <FaPhoneAlt /> },
-        { name: "Blog", href: "/Blog", icon: <FaUserAlt /> },
-    ];
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
-    return (
-        <header className="position-fixed top-0 start-0 w-100 bg-white bg-opacity-90 backdrop-blur border-bottom shadow-sm z-3 ">
-            <nav className="container d-flex justify-content-between align-items-center py-3 px-3">
-                {/* 🔹 Logo */}
-                <Link
-                    href="/"
-                    className="fw-bold fs-4 text-decoration-none text-gradient"
+  const navLinks = [
+    { name: "Home", href: "/", icon: <FaHome /> },
+    {
+      name: "Products",
+      icon: <FaBoxOpen />,
+      submenu: [
+        { name: "Smart Bench", href: "/Smart-Bench" },
+        { name: "Epoxy", href: "/Epoxy" },
+        { name: "Toys", href: "/Toys" },
+      ],
+    },
+    { name: "About", href: "/About", icon: <FaInfoCircle /> },
+    { name: "Contact", href: "/Contact", icon: <FaPhoneAlt /> },
+  ];
+
+  const toggleSubMenu = (name) => {
+    setActiveSubMenu(activeSubMenu === name ? null : name);
+  };
+
+  return (
+    <header className="position-fixed top-0 start-0 w-100 bg-white bg-opacity-90 backdrop-blur border-bottom shadow-sm z-3">
+      <nav className="container d-flex justify-content-between align-items-center py-3 px-3">
+        {/* 🔹 Logo */}
+        <Link
+          href="/"
+          className="fw-bold fs-4 text-decoration-none text-gradient"
+        >
+          MyNextApp
+        </Link>
+
+        {/* 🔹 Desktop Nav */}
+        <ul className="d-none d-md-flex list-unstyled mb-0 gap-4 align-items-center">
+          {navLinks.map((link) => (
+            <li key={link.href} className="position-relative">
+              {/* If has submenu */}
+              {link.submenu ? (
+                <div
+                  className="d-flex align-items-center gap-1 cursor-pointer text-dark fw-medium"
+                  onMouseEnter={() => toggleSubMenu(link.name)}
+                  onMouseLeave={() => toggleSubMenu(null)}
                 >
-                    MyNextApp
-                </Link>
-
-                {/* 🔹 Desktop Nav */}
-                <ul className="d-none d-md-flex list-unstyled mb-0 gap-4 align-items-center">
-                    {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <Link
-                                href={link.href}
-                                className={`d-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none fw-medium transition ${pathname === link.href
-                                    ? "active-gradient  activeTextColor  "
-                                    : "text-dark hover-bg"
-                                    }`}
-                            >
-                                {/* {link.icon} */}
-                                {link.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-
-                {/* 🔹 Mobile Toggle */}
-                <button
-                    className="btn border-0 d-md-none text-dark"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-                </button>
-            </nav>
-
-            {/* 🔹 Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -15 }}
+                  <Link
+                    href={link?.submenu?"#":link.href}
+                    className={`px-3 py-2 rounded-3 text-decoration-none ${
+                      pathname === link.href
+                        ? "active-gradient activeTextColor"
+                        : "text-dark hover-bg"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                  <FaChevronDown size={12} className="ms-1" />
+                  <AnimatePresence>
+                    {activeSubMenu === link.name && (
+                      <motion.ul
+                        initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -15 }}
+                        exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.25 }}
-                        className="d-md-none position-fixed top-0 start-0 w-100 bg-white bg-opacity-95 border-top shadow-lg py-4 px-4 rounded-bottom"
-                        style={{ marginTop: "60px" }}
-                    >
-                        {navLinks.map((link) => (
-                            <motion.div key={link.href} whileTap={{ scale: 0.97 }}>
-                                <Link
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${pathname === link.href
-                                        ? "active-gradient activeTextColor"
-                                        : "text-dark hover-bg"
-                                        }`}
-                                >
-                                    {link.icon}
-                                    {link.name}
-                                </Link>
-                            </motion.div>
+                        className="position-absolute start-0 mt-2 list-unstyled shadow-lg rounded-3 bg-white py-2 px-0 w-48 border"
+                        style={{ top: "100%", minWidth: "200px" }}
+                      >
+                        {link.submenu.map((sub) => (
+                          <motion.li
+                            key={sub.href}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <Link
+                              href={sub.href}
+                              className="d-block px-3 py-2 text-decoration-none text-dark fw-semibold hover-bg"
+                            >
+                              {sub.name}
+                            </Link>
+                          </motion.li>
                         ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </header>
-    );
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={`d-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none fw-medium ${
+                    pathname === link.href
+                      ? "active-gradient activeTextColor"
+                      : "text-dark hover-bg"
+                  }`}
+                >
+                  {link.icon}
+                  {link.name}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* 🔹 Mobile Toggle */}
+        <button
+          className="btn border-0 d-md-none text-dark"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+        </button>
+      </nav>
+
+      {/* 🔹 Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className="d-md-none position-fixed top-0 start-0 w-100 bg-white bg-opacity-95 border-top shadow-lg py-4 px-4 rounded-bottom"
+            style={{ marginTop: "60px" }}
+          >
+            {navLinks.map((link) => (
+              <div key={link.href}>
+                <motion.div whileTap={{ scale: 0.97 }}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${
+                      pathname === link.href
+                        ? "active-gradient activeTextColor"
+                        : "text-dark hover-bg"
+                    }`}
+                  >
+                    <span className="d-flex align-items-center gap-3">
+                      {link.icon}
+                      {link.name}
+                    </span>
+                    {link.submenu && (
+                      <FaChevronDown
+                        size={12}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleSubMenu(link.name);
+                        }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+
+                {/* Mobile Submenu */}
+                <AnimatePresence>
+                  {activeSubMenu === link.name && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="list-unstyled ms-4 mb-3"
+                    >
+                      {link.submenu.map((sub) => (
+                        <motion.li key={sub.href} whileHover={{ x: 5 }}>
+                          <Link
+                            href={sub.href}
+                            onClick={() => setIsOpen(false)}
+                            className="d-block px-2 py-1 text-decoration-none text-dark hover-bg rounded-2"
+                          >
+                            {sub.name}
+                          </Link>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
 };
 
 export default Header;

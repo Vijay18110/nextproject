@@ -50,7 +50,7 @@ const WhatWeDo = () => {
     ];
 
     return (
-        <section className="py-5 bg-light position-relative shadow z-2" id="what-we-do">
+        <section className="py-5 bg-light position-relative  z-2" id="what-we-do">
             <div className="container text-center">
                 <motion.h2
                     className="fw-bold display-6 mb-3 text-dark"

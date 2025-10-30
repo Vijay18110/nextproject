@@ -5,6 +5,14 @@ import Image from "next/image";
 import Slider from "../ExternalLib/Carousel/Carousel";
 
 export const sliderData = [
+{
+    id: 2,
+    type: "video",
+    src: "/video/1.mp4",
+    title: "Immersive Experience",
+    subtitle: "A new dimension of computing.",
+    bgColor: "#000000",
+  },
   {
     id: 1,
     type: "image",
@@ -13,14 +21,7 @@ export const sliderData = [
     subtitle: "Blending digital content with your physical space.",
     bgColor: "#F7F7F7",
   },
-  {
-    id: 2,
-    type: "image",
-    src: "/images/all/1.jpg",
-    title: "Immersive Experience",
-    subtitle: "A new dimension of computing.",
-    bgColor: "#000000",
-  },
+  
   {
     id: 3,
     type: "video",

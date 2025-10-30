@@ -41,12 +41,7 @@ const SocialMediaBar = () => {
             gradient: "linear-gradient(135deg, #FF0000 0%, #C60000 100%)",
             link: "https://youtube.com",
         },
-        {
-            name: "Pinterest",
-            icon: <FaPinterest />,
-            gradient: "linear-gradient(135deg, #BD081C 0%, #FF3366 100%)",
-            link: "https://pinterest.com",
-        },
+   
     ];
 
     return (

@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "./Componets/header";
 import Footer from './Componets/Footer/footer'
 import SocialMediaBar from "./Componets/SocialMediaBar/SocialMediaBar";
+import { Poppins } from "next/font/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,6 +14,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // choose what you need
 });
 
 export const metadata = {
