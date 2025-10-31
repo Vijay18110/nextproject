@@ -5,7 +5,7 @@ import Image from "next/image";
 import Slider from "../ExternalLib/Carousel/Carousel";
 
 export const sliderData = [
-{
+  {
     id: 2,
     type: "video",
     src: "/video/1.mp4",
@@ -15,13 +15,13 @@ export const sliderData = [
   },
   {
     id: 1,
-    type: "image",
-    src: "https://www.apple.com/v/apple-vision-pro/j/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg",
+    type: "video",
+    src: "/video/2.mp4",
     title: "Vision Pro",
     subtitle: "Blending digital content with your physical space.",
     bgColor: "#F7F7F7",
   },
-  
+
   {
     id: 3,
     type: "video",
