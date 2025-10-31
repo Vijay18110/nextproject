@@ -43,10 +43,13 @@ const contactInfo = [
 ];
 
 const Contact = () => (
-  <div className="container-fluid py-5 bg-light">
+  <selection>
     <BannerPage text={"Contact"} banner={"./images/bg/8.jpg"} />
+
+
+  <div className="container-fluid  bg-light ">
     {/* Contact Info Section */}
-    <div className="row text-center mb-5">
+    <div className="row text-center mb-5 mt-5">
       {contactInfo.map((info, i) => (
         <ContactInfoCard key={i} {...info} />
       ))}
@@ -62,6 +65,7 @@ const Contact = () => (
       </div>
     </div>
   </div>
+    </selection>
 );
 
 export default Contact;

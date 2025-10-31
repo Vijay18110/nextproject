@@ -7,34 +7,34 @@ const ProductCard = ({ item }) => {
   return (
     <div className={styles.productCard} key={item.id} onClick={() => router.push('/product-details')}>
       <div className={styles.productImage}>
-        <img src={item.image} alt={item.title} className=" rounded-bottom-4 shadow" />
-        
-        <div className={`${styles.tag} ${styles.type}`}>{item.type}</div>
+        <img lazy="loading" src={item?.image} alt={item?.title} className=" rounded-bottom-4 shadow" />
+
+        <div className={`${styles.tag} ${styles.type}`}>{item?.type}</div>
         <button className={styles.favorite}>
           <FaHeart />
         </button>
       </div>
-      <div className={styles.productInfo}>
-        <h3>{item.title}</h3>
-        <p className={styles.price}>{item.price}</p>
-        <p className={styles.desc}>{item.description}</p>
+      <div className={styles?.productInfo}>
+        <h3>{item?.title}</h3>
+        <p className={styles.price}>{item?.price}</p>
+        <p className={styles.desc}>{item?.description}</p>
 
         <ul className={styles.details}>
           <li>
-            <FaBed /> {item.details.beds}
+            <FaBed /> {item?.details?.beds}
           </li>
           <li>
-            <FaBath /> {item.details.baths}
+            <FaBath /> {item?.details?.baths}
           </li>
           <li>
-            <FaExpand /> {item.details.area}
+            <FaExpand /> {item?.details?.area}
           </li>
         </ul>
 
         <div className={styles.author}>
-          <img src={item.author.image} alt={item.author.name} />
+          <img src={item?.author?.image} lazy="loading" alt={item?.author?.name} />
           <p>
-            By <strong>{item.author.name}</strong>
+            By <strong>{item?.author?.name}</strong>
           </p>
         </div>
 
@@ -45,3 +45,4 @@ const ProductCard = ({ item }) => {
 }
 
 export default ProductCard;
+

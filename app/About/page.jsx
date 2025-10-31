@@ -6,7 +6,7 @@ import { FaBullseye, FaEye, FaUsers, FaHandshake } from "react-icons/fa";
 import Button from "../Shared/Button";
 import { useRouter } from "next/navigation";
 import IconContainer from "../Shared/IconContainer/IconContainer";
-
+import BannerPage from '../Shared/BannerPage/BannerPage'
 const AboutPage = ({ bg = "#f8f9fa" }) => {
     const router = useRouter();
 
@@ -17,7 +17,10 @@ const AboutPage = ({ bg = "#f8f9fa" }) => {
                 background: `linear-gradient(135deg, ${bg} 0%, #ffffff 100%)`,
             }}
         >
+        <BannerPage text={"About Us" } banner={"./images/bg/2.jpg" }/>
+
             {/* Decorative overlay */}
+            
             <div
                 className="position-absolute top-0 start-0 w-100 h-100"
                 style={{

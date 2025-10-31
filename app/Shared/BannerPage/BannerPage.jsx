@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import './banner.css'
 const BannerPage = ({ banner, text, height = "350px" }) => {
     return (
         <section
-            className="banner-page position-relative d-flex align-items-center justify-content-center text-center"
+            className="container-fluid banner-page position-relative d-flex align-items-center justify-content-center text-center"
             style={{
                 backgroundImage: `url(${banner})`,
                 height,

@@ -292,47 +292,13 @@ body {
   text-align: center;
 }
 
-.banner-page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
+
+.submenu-hover {
+  transition: all 0.2s ease-in-out;
 }
 
-.banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.6) 50%,
-      rgba(0, 0, 0, 0.8) 100%);
-  backdrop-filter: blur(3px);
-  z-index: 1;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-  padding: 1rem;
-}
-
-.banner-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-  display: inline-block;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.banner-divider {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  border-radius: 2px;
+.submenu-hover:hover {
+  background: rgba(0, 123, 255, 0.08); /* light primary tint */
+  color: #0d6efd; /* bootstrap primary */
+  transform: translateX(4px);
 }
