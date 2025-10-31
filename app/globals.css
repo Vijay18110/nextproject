@@ -105,12 +105,15 @@ body {
 /* animate fill from both sides */
 .onHover:hover::before {
   background-position: right bottom;
+
 }
 
 /* optional: text color change */
 .onHover:hover {
   color: #fff;
   box-shadow: none;
+  border: 1px solid var(--main-color) !important;
+
 }
 
 .react-multiple-carousel__arrow {
@@ -200,9 +203,136 @@ body {
   border-color: var(--main-color) !important;
 }
 
- .btn-orange {
-          background-color: #ff6600;
-        }
-        .btn-orange:hover {
-          background-color: #e65c00;
-        }
+.btn-orange {
+  background-color: #ff6600;
+}
+
+.btn-orange:hover {
+  background-color: #e65c00;
+}
+
+.contact-card .icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: var(--icon-bg, #ffffffcc);
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+
+.contact-card:hover .icon-wrapper {
+  border-radius: 50%;
+}
+
+
+
+
+.home-hero-section .hero-section-container {
+  padding: 200px 0;
+}
+
+.hero-section-title_sub {
+  display: table;
+  position: relative;
+  font-size: 1.2em;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.hero-section-title {
+  text-align: left;
+}
+
+.hero-section-wrap .hero-section-title {
+  text-align: center;
+}
+
+.hero-section-wrap .hero-section-title p {
+  text-align: center;
+  color: #fff;
+}
+
+.home-hero-section .hero-section-title h2 {
+  text-align: center;
+  font-size: 3.7em;
+  line-height: 1.3em;
+}
+
+.home-hero-section .hero-section-title h2 a,
+.home-hero-section .hero-section-title .geodir-category-location a,
+.home-hero-section .hero-section-title p {
+  color: #fff;
+}
+
+.home-hero-section .hero-section-title h5 {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.home-hero-section .hero-section-title h5:before {
+  display: none;
+}
+
+.home-hero-section .hero-section-title p {
+  max-width: 550px;
+}
+
+.home-hero-section .hero-section-title .geodir-category-location {
+  display: table;
+  margin: 10px 0;
+}
+
+.hero-section-title.hs_align-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.banner-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.8) 100%);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+}
+
+.banner-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.banner-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border-radius: 2px;
+}

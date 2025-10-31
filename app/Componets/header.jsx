@@ -1,4 +1,4 @@
- 
+
 
 
 /* eslint-disable react/no-unknown-property */
@@ -56,8 +56,8 @@ const Header = () => {
 
         {/* 🔹 Desktop Nav */}
         <ul className="d-none d-md-flex list-unstyled mb-0 gap-4 align-items-center">
-          {navLinks.map((link) => (
-            <li key={link.href} className="position-relative">
+          {navLinks.map((link, idx) => (
+            <li key={idx} className="position-relative">
               {/* If has submenu */}
               {link.submenu ? (
                 <div
@@ -66,12 +66,11 @@ const Header = () => {
                   onMouseLeave={() => toggleSubMenu(null)}
                 >
                   <Link
-                    href={link?.submenu?"#":link.href}
-                    className={`px-3 py-2 rounded-3 text-decoration-none ${
-                      pathname === link.href
-                        ? "active-gradient activeTextColor"
-                        : "text-dark hover-bg"
-                    }`}
+                    href={link?.submenu ? "#" : link.href}
+                    className={`px-3 py-2 rounded-3 text-decoration-none ${pathname === link.href
+                      ? "active-gradient activeTextColor"
+                      : "text-dark hover-bg"
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -107,11 +106,10 @@ const Header = () => {
               ) : (
                 <Link
                   href={link.href}
-                  className={`d-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none fw-medium ${
-                    pathname === link.href
-                      ? "active-gradient activeTextColor"
-                      : "text-dark hover-bg"
-                  }`}
+                  className={`d-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none fw-medium ${pathname === link.href
+                    ? "active-gradient activeTextColor"
+                    : "text-dark hover-bg"
+                    }`}
                 >
                   {link.icon}
                   {link.name}
@@ -141,17 +139,19 @@ const Header = () => {
             className="d-md-none position-fixed top-0 start-0 w-100 bg-white bg-opacity-95 border-top shadow-lg py-4 px-4 rounded-bottom"
             style={{ marginTop: "60px" }}
           >
-            {navLinks.map((link) => (
-              <div key={link.href}>
+            {navLinks.map((link, idx) => (
+              <div key={idx}>
                 <motion.div whileTap={{ scale: 0.97 }}>
                   <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${
-                      pathname === link.href
-                        ? "active-gradient activeTextColor"
-                        : "text-dark hover-bg"
-                    }`}
+                    href={link?.submenu ? "#" : link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubMenu(link.name);
+                    }}
+                    className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${pathname === link.href
+                      ? "active-gradient activeTextColor"
+                      : "text-dark hover-bg"
+                      }`}
                   >
                     <span className="d-flex align-items-center gap-3">
                       {link.icon}
@@ -160,10 +160,7 @@ const Header = () => {
                     {link.submenu && (
                       <FaChevronDown
                         size={12}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          toggleSubMenu(link.name);
-                        }}
+
                       />
                     )}
                   </Link>
