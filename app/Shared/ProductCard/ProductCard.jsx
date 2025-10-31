@@ -8,15 +8,12 @@ const ProductCard = ({ item }) => {
     <div className={styles.productCard} key={item.id} onClick={() => router.push('/product-details')}>
       <div className={styles.productImage}>
         <img src={item.image} alt={item.title} className=" rounded-bottom-4 shadow" />
-        <div className={`${styles.tag} ${styles[item.status.toLowerCase()]}`}>
-          {item.status}
-        </div>
+        
         <div className={`${styles.tag} ${styles.type}`}>{item.type}</div>
         <button className={styles.favorite}>
           <FaHeart />
         </button>
       </div>
-
       <div className={styles.productInfo}>
         <h3>{item.title}</h3>
         <p className={styles.price}>{item.price}</p>

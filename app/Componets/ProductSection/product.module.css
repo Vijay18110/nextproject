@@ -4,6 +4,7 @@
   font-family: "Poppins", sans-serif;
   position: relative;
   z-index: 2;
+  
 }
 
 .container {
@@ -20,6 +21,7 @@
   overflow: hidden;
   width: 370px;
   transition: all 0.3s ease;
+  margin-bottom: 5px;
 }
 
 .productCard:hover {

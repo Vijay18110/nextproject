@@ -284,3 +284,8 @@ const ProductFeatures = () => (
         </div>
     </div>
 );
+
+
+        <div className={`${styles.tag} ${styles[item.status.toLowerCase()]}`}>
+          {item.status}
+        </div>

@@ -8,9 +8,7 @@ const Contact = () => {
 return (
 <div className="container-fluid my-5 pt-5 bg-white">
     {/* Contact Info Section */}
-
 <div className="row text-center mb-5">
-
   {/* Location */}
   <div className="col-md-4 mb-4">
     <div className="p-4 h-100 rounded-3 shadow-sm" style={{

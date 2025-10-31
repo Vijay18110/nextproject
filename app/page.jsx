@@ -24,9 +24,9 @@ return (
   <HeroSlider />
   <WhatWeDo />
 
-  <section className=" position-relative bg-light py-5" >
+  <section className=" position-relative bg-light py-3" >
     <h2 className="text-center mb-5 fw-bold text-dark">Featured Products</h2>
-      <Slider responsive={responsive} partialVisible={true} autoplay={true}>
+      <Slider showDot={false} responsive={responsive} partialVisible={true} autoplay={true}>
         {products.map((item, idx) =>
         <ProductCard  key={item.id} item={item} />)}
       </Slider>
