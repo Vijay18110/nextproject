@@ -2,13 +2,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import BannerPage from "../Shared/BannerPage/BannerPage";
-import ReactImageMagnify from "react-image-magnify";
+
 import { FaStar } from "react-icons/fa";
 import { FiGitPullRequest } from "react-icons/fi";
 import Image from "next/image";
 import Button from "../Shared/Button";
 import RequestForm from "../Componets/EnqueryForm";
 import MainPortal from "../Componets/MainPortal/MainPortal";
+import useWindowWidth from "../Hooks/useWindow";
+import Zoom from "react-img-zoom";
+import ImageZoomRight from "./ImageZoomInRight";
+
 
 const productImages = [
     "/images/all/1.jpg",
@@ -77,12 +81,11 @@ const ProductDetails = () => {
     }, [isPaused]);
 
     const [openForm, setOpenForm] = useState(false);
-
+    const width = useWindowWidth()
     const handleFormSubmit = (data) => {
         console.log("Form submitted:", data);
         // 🔹 You can integrate your API call or toast here
     };
-
 
     return (
         <>
@@ -123,38 +126,20 @@ const ProductDetails = () => {
 
                     {/* 🔹 Main Image with hover pause */}
                     <div
-                        className="col-md-5  "
+                        className="col-md-5"
                         onMouseEnter={() => setIsPaused(true)}
                         onMouseLeave={() => setIsPaused(false)}
-                    >
-                        {typeof window !== "undefined" && window.innerWidth >= 768 ? (
-                            <ReactImageMagnify
-                                {...{
-                                    smallImage: {
-                                        alt: "Main Product",
-                                        isFluidWidth: true,
-                                        src: activeImg,
-                                    },
-                                    largeImage: {
-                                        src: activeImg,
-                                        width: 1200,
-                                        height: 1200,
-                                    },
-                                    enlargedImageContainerStyle: { zIndex: 9 },
-                                    lensStyle: { backgroundColor: "rgba(0,0,0,.1)" },
-                                }}
-                            />
-                        ) : (
-                            <Image
-                                src={activeImg}
-                                alt="Product Image"
-                                width={600}
-                                height={600}
-                                className="img-fluid rounded-3"
-                                style={{ objectFit: "cover" }}
-                            />
-                        )}
-
+                    >{width > 768 ? (
+                        <ImageZoomRight src={activeImg} zoomWidth={width > 1230 ? 700 : width > 978 ? 500 : 340} zoomHeight={400} />
+                    ) : (
+                        <Image
+                            src={activeImg}
+                            alt="Product"
+                            width={500}
+                            height={400}
+                            className="rounded-3 img-fluid"
+                        />
+                    )}
                     </div>
 
                     {/* 🔹 Product Info */}
