@@ -67,7 +67,7 @@ const ImageZoomRight = ({ src, zoomWidth = 350, zoomHeight = 350 }) => {
                         position: "absolute",
                         top: 0,
                         left: "calc(100% + 16px)",
-                        zIndex: 1099,
+                        zIndex: 2,
                     }}
                 />
             )}

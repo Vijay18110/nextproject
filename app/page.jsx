@@ -8,15 +8,19 @@ import WhatWeDo from "./Componets/WhatWeDo";
 import Products from "./Componets/ProductSection/ProductSection";
 import { products } from "./StaticData/Products";
 import ProductCard from './Shared/ProductCard/ProductCard'
+import useWindowWidth from './Hooks/useWindow.js'
 export default function HomePage() {
+const width=useWindowWidth()
+
 const { scrollY } = useScroll();
 const y = useTransform(scrollY, [0, 300], [0, 100]);
 const opacity = useTransform(scrollY, [0, 150, 300], [1, 0.9, 0.7]);
+
 const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1 ,partialVisibilityGutter:70},
-    laptop: { breakpoint: { max: 1424, min: 1024 }, items:3 , slidesToSlide: 1 ,partialVisibilityGutter:70},
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1,partialVisibilityGutter:70 },
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1,partialVisibilityGutter:70 },
+    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
+    laptop: { breakpoint: { max: 1424, min: 1024 }, items:3 , slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
+    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1,partialVisibilityGutter:width>480?70:width>402?30:2},
+    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1,partialVisibilityGutter:width>480?70:width>402?30:2 },
   };
 return (
 <main className=" bg-white text-dark" style={{ marginTop: "-75px" }}>

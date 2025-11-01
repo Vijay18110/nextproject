@@ -19,6 +19,7 @@ import { FaPuzzlePiece } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();
@@ -36,6 +37,7 @@ const Header = () => {
     {
       name: "Products",
       icon: <FaBoxOpen />,
+      href:"#",
       submenu: [
         { name: "Smart Bench", href: "/Smart-Bench", icon: <FaCogs /> },
         { name: "Epoxy", href: "/Epoxy", icon: <FaCube /> },
@@ -58,7 +60,7 @@ const Header = () => {
   const toggleSubMenu = (name) => {
     setActiveSubMenu(activeSubMenu === name ? null : name);
   };
-
+const router=useRouter()
   return (
     <header className="position-fixed top-0 start-0 w-100 bg-white bg-opacity-90 backdrop-blur border-bottom shadow-sm z-3">
       <nav className="container d-flex justify-content-between align-items-center py-3 px-3">
@@ -132,9 +134,16 @@ const Header = () => {
             {navLinks.map((link, idx) => (
               <div key={idx}>
                 <motion.div whileTap={{ scale: 0.97 }}>
-                  <Link href={link?.submenu ? "#" : link.href} onClick={(e) => {
-                    e.preventDefault();
+                  <Link href={link.href} onClick={()=>{
+                    if(link.href!="#"){
+                      router.push(link.href)
+                      setIsOpen(false)
+                    }
+                    else{
+                      
                     toggleSubMenu(link.name);
+                  
+                    }
                   }}
                     className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${pathname === link.href
                       ? "active-gradient activeTextColor"
