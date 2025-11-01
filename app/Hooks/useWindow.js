@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 const useWindowWidth = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(
+        typeof window !== "undefined" ? window.innerWidth : 0
+    );
 
     useEffect(() => {
+        if (typeof window === "undefined") return; // guard for SSR
+
         const handleResize = () => setWidth(window.innerWidth);
 
         window.addEventListener("resize", handleResize);
-
-        // Cleanup when component unmounts
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return width;

@@ -10,7 +10,6 @@ import Button from "../Shared/Button";
 import RequestForm from "../Componets/EnqueryForm";
 import MainPortal from "../Componets/MainPortal/MainPortal";
 import useWindowWidth from "../Hooks/useWindow";
-import Zoom from "react-img-zoom";
 import ImageZoomRight from "./ImageZoomInRight";
 
 
