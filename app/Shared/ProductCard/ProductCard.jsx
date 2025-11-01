@@ -2,10 +2,11 @@
 import { FaHeart, FaBed, FaBath, FaExpand } from "react-icons/fa";
 import styles from "../../Componets/ProductSection/product.module.css";
 import { useRouter } from "next/navigation";
+import { slugify } from '../../Utility/Slugify'
 const ProductCard = ({ item }) => {
   const router = useRouter()
   return (
-    <div className={styles.productCard} key={item.id} onClick={() => router.push('/product-details')}>
+    <div className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
       <div className={styles.productImage}>
         <img lazy="loading" src={item?.image} alt={item?.title} className=" rounded-bottom-4 shadow" />
 

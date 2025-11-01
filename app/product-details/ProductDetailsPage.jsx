@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import BannerPage from "../Shared/BannerPage/BannerPage";
 
 import { FaStar } from "react-icons/fa";
 import { FiGitPullRequest } from "react-icons/fi";
 import Image from "next/image";
-import Button from "../Shared/Button";
+import BannerPage from "../Shared/BannerPage/BannerPage";
 import RequestForm from "../Componets/EnqueryForm";
-import MainPortal from "../Componets/MainPortal/MainPortal";
-import useWindowWidth from "../Hooks/useWindow";
 import ImageZoomRight from "./ImageZoomInRight";
+import MainPortal from "../Componets/MainPortal/MainPortal";
+import Button from "../Shared/Button";
+import useWindowWidth from "../Hooks/useWindow";
 
 
 const productImages = [
@@ -56,7 +56,11 @@ const infoCards = [
     },
 ];
 
-const ProductDetails = () => {
+
+
+const ProductDetails = ({ slug }) => {
+
+
     const [activeImg, setActiveImg] = useState(productImages[0]);
     const [activeTab, setActiveTab] = useState(infoCards[0].id);
     const [isPaused, setIsPaused] = useState(false);
@@ -88,8 +92,6 @@ const ProductDetails = () => {
 
     return (
         <>
-
-
 
             <BannerPage banner={"/images/all/1.jpg"} text="Details" />
 
@@ -129,7 +131,7 @@ const ProductDetails = () => {
                         onMouseEnter={() => setIsPaused(true)}
                         onMouseLeave={() => setIsPaused(false)}
                     >{width > 768 ? (
-                        <ImageZoomRight src={activeImg} zoomWidth={width > 1230 ? 700 : width > 978 ? 500 : 340} zoomHeight={400} />
+                        <ImageZoomRight src={activeImg} zoomWidth={width > 1480 ? 600 : width > 1250 ? 500 : 400} zoomHeight={width > 1250 ? 500 : 400} />
                     ) : (
                         <Image
                             src={activeImg}

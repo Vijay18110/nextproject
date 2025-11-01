@@ -7,9 +7,7 @@ const useWindowWidth = () => {
 
     useEffect(() => {
         if (typeof window === "undefined") return; // guard for SSR
-
         const handleResize = () => setWidth(window.innerWidth);
-
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
