@@ -66,7 +66,6 @@ const Header = () => {
         <Link href="/" className="fw-bold fs-4 text-decoration-none  text-gradient activeTextColor">
           Logo
         </Link>
-
         {/* 🔹 Desktop Nav */}
         <ul className="d-none d-md-flex list-unstyled mb-0 gap-4 align-items-center">
           {navLinks.map((link, idx) => (
@@ -158,7 +157,7 @@ const Header = () => {
                       height: 0,
                       opacity: 0
                     }} transition={{ duration: 0.3 }} className="list-unstyled ms-4 mb-3">
-                      {link.submenu.map((sub) => (
+                      {link?.submenu?.map((sub) => (
                         <motion.li key={sub.href} whileHover={{ x: 5 }}>
                           <Link href={sub.href} onClick={() => setIsOpen(false)}
                             className="d-flex align-items-center gap-2 px-2 py-2 text-decoration-none text-dark rounded-2 submenu-hover"
