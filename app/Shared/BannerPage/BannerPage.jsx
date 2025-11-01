@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import './banner.css'
-const BannerPage = ({ banner, text, height = "350px" }) => {
+const BannerPage = ({ banner, text, height = "400px" }) => {
     return (
         <section
             className="container-fluid banner-page position-relative d-flex align-items-center justify-content-center text-center"

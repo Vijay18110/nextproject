@@ -2,11 +2,13 @@
 'use client'
 import React from 'react'
 
-const Button = ({ className, text, handleNavigate }) => {
+const Button = ({ className, text, handleNavigate, children }) => {
     return (
+
         <button className={className} onClick={handleNavigate}>
-            {text}
+            {children || text}
         </button>
+
     )
 }
 
