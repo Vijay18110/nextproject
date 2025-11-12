@@ -16,7 +16,7 @@ const ProductCard = ({ item }) => {
     // 🔹 You can integrate your API call or toast here
   };
   return (
-    <div className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
+    <div style={{cursor: "pointer"}} className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
       <div className={styles.productImage}>
         <img lazy="loading" src={item?.image} alt={item?.title} className=" rounded-bottom-4 shadow" />
         <div className={`${styles.tag} ${styles.type}`}>{item?.type}</div>

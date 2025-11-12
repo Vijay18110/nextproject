@@ -289,3 +289,26 @@ const ProductFeatures = () => (
         <div className={`${styles.tag} ${styles[item.status.toLowerCase()]}`}>
           {item.status}
         </div>
+
+
+          title: "Immersive Experience",
+    subtitle: "A new dimension of computing.",
+
+
+        <div className={styles.footerCol}>
+          <h3>SUBSCRIBE</h3>
+          <div className={styles.divider}></div>
+          <p>
+            Want to be notified when we launch a new template or update? Just
+            sign up and we’ll send you a notification by email.
+          </p>
+          <form className={styles.subscribeForm}>
+            <input type="email" placeholder="Your Email" />
+            <button type="submit">SEND</button>
+          </form>
+        </div>
+
+         <Slider showDot={false} responsive={responsive} partialVisible={true} autoplay={true}>
+          {products.map((item, idx) =>
+            <ProductCard key={item.id} item={item} />)}
+        </Slider>

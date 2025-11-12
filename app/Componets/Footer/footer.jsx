@@ -75,18 +75,7 @@ const Footer = () => {
         </div>
 
         {/* SUBSCRIBE */}
-        <div className={styles.footerCol}>
-          <h3>SUBSCRIBE</h3>
-          <div className={styles.divider}></div>
-          <p>
-            Want to be notified when we launch a new template or update? Just
-            sign up and we’ll send you a notification by email.
-          </p>
-          <form className={styles.subscribeForm}>
-            <input type="email" placeholder="Your Email" />
-            <button type="submit">SEND</button>
-          </form>
-        </div>
+    
       </div>
 
       <div className={styles.bottomBar}>
