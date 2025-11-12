@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`} cz-shortcut-listen="true">
-        <SocialMediaBar />
+        {/* <SocialMediaBar /> */}
         <Header />
         <div className="bg-light" style={{ marginTop: "75px" }}>
           {children}

@@ -45,7 +45,6 @@ const Footer = () => {
           <h3>HELPFUL LINKS</h3>
           <div className={styles.divider}></div>
           <ul>
-            <li><Link href="/Products">Products</Link></li>
             <li><Link href="/About">About Us</Link></li>
             <li><Link href="/Contact">Contacts</Link></li>
             <li><Link href="/privacyPolicy">Privacy Policy</Link></li>

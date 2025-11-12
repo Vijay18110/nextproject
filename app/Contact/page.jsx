@@ -47,25 +47,25 @@ const Contact = () => (
     <BannerPage text={"Contact"} banner={"./images/bg/8.jpg"} />
 
 
-  <div className="container-fluid  bg-light ">
-    {/* Contact Info Section */}
-    <div className="row text-center mb-5 mt-5">
-      {contactInfo.map((info, i) => (
-        <ContactInfoCard key={i} {...info} />
-      ))}
-    </div>
+    <div className="container-fluid  bg-light ">
+      {/* Contact Info Section */}
+      <div className="row text-center mb-5 mt-5">
+        {contactInfo.map((info, i) => (
+          <ContactInfoCard key={i} {...info} />
+        ))}
+      </div>
 
-    {/* Contact Form + Map */}
-    <div className="row align-items-stretch">
-      <div className="col-md-6 mb-4">
-        <ContactForm />
-      </div>
-      <div className="col-md-6">
-        <ContactMap />
+      {/* Contact Form + Map */}
+      <div className="row align-items-stretch">
+        <div className="col-md-6 mb-4">
+          <ContactForm />
+        </div>
+        <div className="col-md-6">
+          <ContactMap />
+        </div>
       </div>
     </div>
-  </div>
-    </selection>
+  </selection>
 );
 
 export default Contact;

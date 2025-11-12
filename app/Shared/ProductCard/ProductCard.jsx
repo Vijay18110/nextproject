@@ -1,45 +1,47 @@
 "use client"
-import { FaHeart, FaBed, FaBath, FaExpand } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import styles from "../../Componets/ProductSection/product.module.css";
 import { useRouter } from "next/navigation";
 import { slugify } from '../../Utility/Slugify'
+import Button from "../Button";
+import { FiGitPullRequest } from "react-icons/fi";
+import MainPortal from '../../Componets/MainPortal/MainPortal'
+import RequestForm from '../../Componets/EnqueryForm'
+import { useState } from "react";
 const ProductCard = ({ item }) => {
   const router = useRouter()
+  const [openForm, setOpenForm] = useState(false);
+  const handleFormSubmit = (data) => {
+    console.log("Form submitted:", data);
+    // 🔹 You can integrate your API call or toast here
+  };
   return (
     <div className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
       <div className={styles.productImage}>
         <img lazy="loading" src={item?.image} alt={item?.title} className=" rounded-bottom-4 shadow" />
-
         <div className={`${styles.tag} ${styles.type}`}>{item?.type}</div>
         <button className={styles.favorite}>
           <FaHeart />
         </button>
       </div>
       <div className={styles?.productInfo}>
-        <h3>{item?.title}</h3>
-        <p className={styles.price}>{item?.price}</p>
+        <h3 className="my-2">{item?.title}</h3>
         <p className={styles.desc}>{item?.description}</p>
+        <div className="d-flex gap-3 mb-4">
+          <Button handleNavigate={(e) => {
+            e.stopPropagation()
+            setOpenForm(true)
+          }} className="btn onHover btn-dark px-4 py-2 rounded-pill fw-semibold d-flex align-items-center gap-2">
+            <FiGitPullRequest /> Request
+          </Button>
+          {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
+            <RequestForm
+              onSubmit={handleFormSubmit}
+              onClose={() => setOpenForm(false)}
 
-        <ul className={styles.details}>
-          <li>
-            <FaBed /> {item?.details?.beds}
-          </li>
-          <li>
-            <FaBath /> {item?.details?.baths}
-          </li>
-          <li>
-            <FaExpand /> {item?.details?.area}
-          </li>
-        </ul>
-
-        <div className={styles.author}>
-          <img src={item?.author?.image} lazy="loading" alt={item?.author?.name} />
-          <p>
-            By <strong>{item?.author?.name}</strong>
-          </p>
+            />
+          </MainPortal>}
         </div>
-
-
       </div>
     </div>
   )

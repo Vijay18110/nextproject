@@ -67,19 +67,19 @@ const Header = () => {
           Logo
         </Link>
         {/* 🔹 Desktop Nav */}
-        <ul className="d-none d-md-flex list-unstyled mb-0 gap-4 align-items-center">
+        <ul className="d-none d-md-flex list-unstyled mb-0 gap-1 align-items-center">
           {navLinks.map((link, idx) => (
             <li key={idx} className="position-relative">
               {/* If has submenu */}
               {link.submenu ? (
-                <div className="d-flex align-items-center gap-1 cursor-pointer text-dark fw-medium" onMouseEnter={() =>
+                <div className="d-flex align-items-center  cursor-pointer text-dark fw-medium" onMouseEnter={() =>
                   toggleSubMenu(link.name)}
                   onMouseLeave={() => toggleSubMenu(null)}
                 >
-                  <Link href={link?.submenu ? "#" : link.href} className={`px-3 py-2 rounded-3 text-decoration-none ${pathname === link.href ? "active-gradient activeTextColor" : "text-dark hover-bg"}`}>
+                  <Link href={link?.submenu ? "#" : link.href} className={`px-1 py-2 rounded-3 text-decoration-none ${pathname === link.href ? "active-gradient activeTextColor" : "text-dark hover-bg"}`}>
                     {link.name}
                   </Link>
-                  <FaChevronDown size={12} className="ms-1" />
+                  <FaChevronDown size={12} className="" />
 
                   {/* 🔹 Submenu for Desktop */}
                   <AnimatePresence>
@@ -104,7 +104,7 @@ const Header = () => {
                   </AnimatePresence>
                 </div>
               ) : (
-                <Link href={link.href} className={`d-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none fw-medium ${pathname === link.href ? "active-gradient activeTextColor" : "text-dark hover-bg"}`}>
+                <Link href={link.href} className={`d-flex align-items-center gap-1 px-3 py-2 rounded-3 text-decoration-none fw-medium ${pathname === link.href ? "active-gradient activeTextColor" : "text-dark hover-bg"}`}>
                   {link.icon}
                   {link.name}
                 </Link>

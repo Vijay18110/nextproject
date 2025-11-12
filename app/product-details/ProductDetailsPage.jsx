@@ -90,6 +90,7 @@ const ProductDetails = ({ slug }) => {
         // 🔹 You can integrate your API call or toast here
     };
 
+
     return (
         <>
 

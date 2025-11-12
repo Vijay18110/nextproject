@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 import Button from "../Shared/Button";
 

@@ -154,6 +154,7 @@
 
 .socialIcons svg {
   cursor: pointer;
+  color: white;
   transition: color 0.3s;
 }
 
