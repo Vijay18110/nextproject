@@ -8,26 +8,21 @@ export const sliderData = [
   {
     id: 2,
     type: "video",
-    src: "/video/1.mp4",
-    title: "Immersive Experience",
-    subtitle: "A new dimension of computing.",
+    src: "/video/epoxy_LampVideo.mp4",
+  
     bgColor: "#000000",
   },
   {
     id: 1,
     type: "video",
-    src: "/video/2.mp4",
-    title: "Vision Pro",
-    subtitle: "Blending digital content with your physical space.",
+    src: "/video/Most-Exclusive-Smart-Table-in-the-World.mp4",
     bgColor: "#F7F7F7",
   },
 
   {
     id: 3,
     type: "video",
-    src: "2.mp4",
-    title: "Spatial Computing",
-    subtitle: "Interact with apps in your space.",
+    src: "/video/The-touch-sensitive-river-table-offers-a-captivating-and-interactive-experience-for-users..mp4",   
     bgColor: "#EFEFEF",
   },
 ];
@@ -90,7 +85,7 @@ const HeroSlider = () => {
   const offset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="w-100 position-sticky top-0">
+    <div className="w-100 position-sticky">
       <Slider onSlideChange={handleSlideChange}>
         {sliderData.map((slide, index) => (
           <section
@@ -115,45 +110,7 @@ const HeroSlider = () => {
                 className="object-fit-contain"
               />
             )}
-
-            {slide.type === "video" && index === activeIndex && (
-              <button
-                onClick={togglePlay}
-                className="position-absolute top-0 end-0 m-3 p-3 rounded-circle bg-dark bg-opacity-50 text-white"
-                style={{ width: "60px", height: "60px" }}
-              >
-                {/* Progress Ring */}
-                <svg width="60" height="60">
-                  <circle
-                    cx="30"
-                    cy="30"
-                    r={radius}
-                    stroke="#ffffff30"
-                    strokeWidth="3"
-                    fill="transparent"
-                  />
-                  <circle
-                    cx="30"
-                    cy="30"
-                    r={radius}
-                    stroke="#EE7838"
-                    strokeWidth="3"
-                    fill="transparent"
-                    strokeDasharray={circumference}
-                    strokeDashoffset={offset}
-                    strokeLinecap="round"
-                    style={{ transition: "stroke-dashoffset 0.3s linear" }}
-                  />
-                </svg>
-                <span
-                  className="position-absolute top-50 start-50 translate-middle text-white fw-semibold"
-                  style={{ fontSize: "0.9rem" }}
-                >
-                  {isPlaying ? elapsedTime : "►"}
-                </span>
-              </button>
-            )}
-
+ 
             <div className="position-absolute bottom-0 start-0 p-5 text-dark">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
