@@ -149,6 +149,18 @@ const productData2 = [
   }
 ];
 
+
+const features = [
+  { icon: <ShieldIcon />, title: "10 Year Warranty" },
+  { icon: <FactoryIcon />, title: "Direct Selling : Factory To Customer" },
+  { icon: <ChecklistIcon />, title: "66 Quality Checks" },
+  { icon: <WoodLayersIcon />, title: "KD (Kiln Dried) and HT (Heat Treated)" },
+  { icon: <CubeIcon />, title: "Ergonomically Designed" },
+  { icon: <ChainIcon />, title: "Generations Long Durability" },
+  { icon: <BadgeIcon />, title: "All India Service Warranty" },
+  { icon: <SmileIcon />, title: "Free Of Child Labour" }
+]
+
 const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
     laptop: { breakpoint: { max: 1424, min: 1024 }, items:3 , slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
@@ -162,7 +174,7 @@ const responsive = {
      {/* <WhatWeDo />*/}
      <section className="container py-5">
       <div className="text-center mb-4">
-        <h2 className="fw-bold">New Arrivals, New Stories</h2>
+        <h5 className="fw-bold">New Arrivals, New Stories</h5>
         <p className="text-muted">
           Step into a world of crafted design, where every piece feels like a first.
         </p>
@@ -196,10 +208,8 @@ const responsive = {
       </div>
     </section>
 
-         <section className="container py-5">
-
+      <section className="container py-5">
       <div className=" justify-content-center g-4">
-    
               <Image
                 src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 190348.png"
                 alt={"A Smart Table of Epoxy Resin ETHER"}
@@ -207,12 +217,6 @@ const responsive = {
                 height={500}
                 className="w-100 product-img1"
               />
- 
-            
-            
-
-         
-      
       </div>
     </section>
 
@@ -336,33 +340,199 @@ const responsive = {
       </div>
     </section>
 
+       <section className="container py-5">
 
-      <section className=" position-relative bg-light py-3" >
+      <div className=" justify-content-center g-4">
+    
+              <Image
+                src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 191344.png"
+                alt={"A Smart Table of Epoxy Resin ETHER"}
+                width={500}
+                height={500}
+                className="w-100 product-img1"
+              />
+      </div>
+    </section>
+
+           <section className="container py-5">
+
+      <div className=" justify-content-center g-4">
+    
+              <Image
+                src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 191025.png"
+                alt={"A Smart Table of Epoxy Resin ETHER"}
+                width={500}
+                height={500}
+                className="w-100 product-img1"
+              />
+      </div>
+    </section>
+
+       <section className="container py-5">
+      <div className=" mb-4">
+        <h2 className="fw-bold">More Waiting for You</h2>
+      </div>
+
+      <div className="row justify-content-center g-4">
+        {productData2.map((item) => (
+          <div key={item.id} className="col-md-3 col-sm-6">
+            <div className="product-card1 shadow-sm rounded overflow-hidden position-relative">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={150}
+                height={400}
+                className="w-100 product-img"
+              />
+              {/* Text Overlay */}
+              <div className="product-overlay1">
+                <h4 className="text-white titleText fw-semibold">{item.title}</h4>
+              </div>
+            </div>
+          
+
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+      <section className="container py-5">
+
+      <div className=" justify-content-center g-4">
+    
+              <Image
+                src="/Most Exclusive Smart Table in the World! SPACE/Screenshot 2024-01-15 194610.png"
+                alt={"A Smart Table of Epoxy Resin ETHER"}
+                width={500}
+                height={500}
+                className="w-100 product-img1"
+              />
+      </div>
+    </section>
+
+           <section className="container py-5">
+
+      <div className=" justify-content-center g-4">
+    
+              <Image
+                src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 191025.png"
+                alt={"A Smart Table of Epoxy Resin ETHER"}
+                width={500}
+                height={500}
+                className="w-100 product-img1"
+              />
+      </div>
+    </section>
+
+
+<section className="container py-5">
+      <div className=" mb-4">
+        <h2 className="fw-bold">Meet our Design Masters</h2>
+      </div>
+
+      <div className="row justify-content-center g-4">
+        {productData2.map((item) => (
+          <div key={item.id} className="col-md-3 col-sm-6">
+            <div className="product-card1 shadow-sm rounded overflow-hidden position-relative">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={150}
+                height={400}
+                className="w-100 product-img"
+              />
+              {/* Text Overlay */}
+              <div className="product-overlay1">
+                <h4 className="text-white titleText fw-semibold">{item.title}</h4>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+     <section className="container py-5">
+
+      <div className=" justify-content-center g-4">
+    
+              <Image
+                src="/CHESS FIRE/sdsds-1024x576.jpg"
+                alt={"A Smart Table of Epoxy Resin ETHER"}
+                width={500}
+                height={500}
+                className="w-100 product-img1"
+              />
+      </div>
+    </section>
+
+{      /* <section className=" position-relative bg-light py-3" >
         <h2 className="text-center mb-5 fw-bold text-dark">Featured Products</h2>
         <div className="">
           {products.slice(0,3).map((item, idx) =>
             <div class="col-4"><ProductCard key={item.id} item={item} /></div>
             )}
         </div>
-      </section>
+      </section> */}
       {/* 🌀 Info Section */}
        <section
-        className="position-relative text-center bg-white z-2  min-vh-100 d-flex align-items-center justify-content-center">
+        className="position-relative  bg-white z-2  min-vh-100   ">
         <div className="container">
-          <h2 className="display-5 fw-bold mb-4 text-dark">
-            Immersive Experiences Like Never Before
-          </h2>
+         <div class="text-center">
+           <h5 className="  mb-4 text-dark">
+            Curated Galleries
+          </h5>
           <p className="lead text-secondary mb-4">
-            Vision Pro introduces a fully three-dimensional interface controlled by your eyes,
-            hands, and voice — designed to make digital content feel truly present in your space.
+           Our stores exude an aura that’s irresistible with great wood and fabric.
+            Catching your eyes and captivating your mind, 
+            our art stands at every nook and corner looking at you.
+             Visit and get consumed.
           </p>
-          <p className="lead text-secondary mb-5">
-            It’s not just AR — it’s a new way of computing. Whether you’re watching a movie,
-            collaborating with teammates, or reliving your memories in 3D, Vision Pro adapts seamlessly to you.
-          </p>
-          <Button text="  Learn More" className="btn btn-gradient btn-lg rounded-pill shadow px-4 onHover" />
+         </div>
+        <div className="row justify-content-center g-4">
+        {productData.map((item) => (
+          <div key={item.id} className="col-md-4 col-sm-6">
+            <div className="product-card shadow-sm rounded overflow-hidden position-relative">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={550}
+                height={600}
+                className="w-100 product-img"
+              />
+              {/* Text Overlay */}
+              <div className="product-overlay">
+                <h4 className="text-white fw-semibold">{item.title}</h4>
+              </div>
+            </div>
+            <div className="mt-4" >
+              <h6 className="fw-bold">{item.subtitle}</h6>
+              <Link href={item.link} className="small fw-semibold text-dark">
+                {item.btn}
+              </Link>
+            </div>
+
+          </div>
+        ))}
+      </div>
         </div>
       </section> 
+ <div className="container py-5">
+      <div className="row g-4">
+        {features.map((item, index) => (
+          <div className="col-md-3 col-sm-6" key={index}>
+            <div className="feature-box p-4">
+              <div className="feature-icon">{item.icon}</div>
+              <p className="feature-title mb-0">{item.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+
+
       {/* 🔍 Final Section */}
       {/* <section
         className="py-5 z-2  text-center min-vh-100 d-flex flex-column align-items-center justify-content-center bg-white position-relative">
@@ -379,3 +549,68 @@ const responsive = {
     </main>
   );
 }
+
+
+
+
+
+
+
+export const ShieldIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3l7 4v5c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
+
+export const FactoryIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 21V9l5 3V9l5 3V9l8 4v8H3z" />
+    <path d="M14 3h4v4h-4z" />
+  </svg>
+);
+
+export const ChecklistIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="4" y="3" width="16" height="18" rx="2" />
+    <path d="M8 9h8M8 13h8M8 17h5" />
+    <path d="M9 4l1 1 2-2" />
+  </svg>
+);
+
+export const WoodLayersIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 7l9-4 9 4-9 4-9-4z" />
+    <path d="M3 12l9 4 9-4" />
+    <path d="M3 17l9 4 9-4" />
+  </svg>
+);
+
+export const CubeIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2l9 5v10l-9 5-9-5V7z" />
+    <path d="M12 12l9-5M12 12v10M12 12l-9-5" />
+  </svg>
+);
+
+export const ChainIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M8 12a4 4 0 0 1 0-6l2-2a4 4 0 0 1 6 6l-1 1" />
+    <path d="M16 12a4 4 0 0 1 0 6l-2 2a4 4 0 0 1-6-6l1-1" />
+  </svg>
+);
+
+export const BadgeIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="7" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+);
+
+export const SmileIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="M8 10h.01M16 10h.01" />
+    <path d="M8 15c1.3 1 2.7 1.5 4 1.5s2.7-.5 4-1.5" />
+  </svg>
+);

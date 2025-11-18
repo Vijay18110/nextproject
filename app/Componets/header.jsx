@@ -1,70 +1,94 @@
-import React from "react";
+"use client";
+import Link from "next/link";
+import styles from "./Header.module.css";
+import { useState } from "react";
 
 export default function Header() {
+  const [activeMenu, setActiveMenu] = useState(null);
+
   return (
-    <>
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg bg-white shadow-sm py-3 sticky-top">
-        <div className="container">
-          <a className="navbar-brand fw-bold fs-3" href="#">
-             Logo
-          </a>
+    <header className={styles.header}>
+      <nav className={styles.navbar}>
+        
+        {/* Logo */}
+        <Link href="/" className={styles.logo}>
+          DTALE<strong>MODERN</strong>
+        </Link>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#mobileMenu"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        {/* Desktop Menu */}
+        <ul className={styles.navMenu}>
+          {[
+            "New",
+            "Collections",
+            "Furniture",
+            "Outdoor",
+            "Decor",
+            "Lightings",
+            "Ready to Ship",
+            "Shop By Style",
+            "Stores",
+            "Warehouse Sale",
+          ].map((item) => (
+            <li
+              key={item}
+              className={styles.navItem}
+              onMouseEnter={() => setActiveMenu(item)}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
+              <span>{item}</span>
 
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mx-auto gap-3 fw-semibold">
-              <li className="nav-item"><a className="nav-link" href="#">New</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Collections</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Furniture</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Outdoor</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Decor</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Lightings</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Ready to Ship</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Shop By Style</a></li>
-              <li className="nav-item"><a className="nav-link text-danger" href="#">Warehouse Sale</a></li>
-            </ul>
+              {/* Mega Menu - only for Decor */}
+              {activeMenu === item && item === "Decor" && (
+                <div className={styles.megaMenu}>
+                  <div className={styles.megaGrid}>
 
-            <div className="d-flex gap-3 align-items-center">
-              <i className="bi bi-person fs-5"></i>
-              <i className="bi bi-search fs-5"></i>
-              <i className="bi bi-heart fs-5"></i>
-              <i className="bi bi-bag fs-5"></i>
-            </div>
-          </div>
-        </div>
+                    <div className={styles.col}>
+                      <h4>Mirrors</h4>
+                      <p>Wall Mirrors</p>
+                      <p>Floor Mirrors</p>
+                      <p>Decorative Mirrors</p>
+                    </div>
+
+                    <div className={styles.col}>
+                      <h4>Decorative Objects</h4>
+                      <p>Decor Pieces</p>
+                      <p>Bookends</p>
+                      <p>Lanterns & Candle Holders</p>
+                      <p>Cushions & Runners</p>
+                      <p>Planters</p>
+                    </div>
+
+                    <div className={styles.col}>
+                      <h4>Storages</h4>
+                      <p>Fabric Racks</p>
+                      <p>Bags & Baskets</p>
+                      <p>Clock</p>
+                    </div>
+
+                    <div className={styles.col}>
+                      <h4>Home Fragrance</h4>
+                      <p>Pots</p>
+                      <p>Candles</p>
+                    </div>
+
+                    <div className={styles.col}>
+                      <h4>Art</h4>
+                      <p>Paintings</p>
+                      <p>Sculptures</p>
+                      <p>Decor</p>
+                      <p>Wall Decor</p>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Icon */}
+        <div className={styles.mobileMenuBtn}>☰</div>
       </nav>
-
-      {/* Mobile Menu */}
-      <div className="offcanvas offcanvas-start" id="mobileMenu">
-        <div className="offcanvas-header">
-          <h5 className="fw-bold">Menu</h5>
-          <button className="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div className="offcanvas-body">
-          <ul className="navbar-nav fw-semibold">
-            <li className="nav-item"><a className="nav-link" href="#">New</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Collections</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Furniture</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Outdoor</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Decor</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Lightings</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Ready to Ship</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Shop By Style</a></li>
-            <li className="nav-item"><a className="nav-link text-danger" href="#">Warehouse Sale</a></li>
-          </ul>
-        </div>
-      </div>
-
-     
- 
-    </>
+    </header>
   );
 }

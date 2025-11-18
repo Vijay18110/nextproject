@@ -365,3 +365,98 @@ body {
   width: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent);
 }
+
+
+
+
+.feature-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    min-height: 120px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s ease;
+}
+
+.feature-box:hover {
+    border-color: #ddd;
+    box-shadow: 0 0 10px #f3eded;
+}
+
+.feature-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke-width: 1.5;
+}
+
+.feature-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+
+/* Header */
+.custom-header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 4px;
+}
+
+.nav-list li {
+  cursor: pointer;
+}
+
+/* Mega Menu */
+.mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  background: #fff;
+  padding: 20px 0;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mega-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu li {
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.mega-menu h6 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Hover effect */
+.nav-item:hover > a {
+  color: #f39c12;
+}
+
+
+
+
+
+
+
