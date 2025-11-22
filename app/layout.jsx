@@ -7,6 +7,7 @@ import Header from "./Componets/header";
 import Footer from './Componets/Footer/footer'
 import SocialMediaBar from "./Componets/SocialMediaBar/SocialMediaBar";
 import { Poppins } from "next/font/google";
+import WhatsAppFloatingButton from './Componets/WhatsAppFloatingButton/WhatsAppFloatingButton';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} cz-shortcut-listen="true">
         {/* <SocialMediaBar /> */}
+        <WhatsAppFloatingButton/>
         <Header />
         <div className="bg-light" style={{ marginTop: "75px" }}>
           {children}

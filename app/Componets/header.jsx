@@ -2,9 +2,13 @@
 
 import Link from "next/link";
 import styles from "./Header.module.css";
+import { FaRegEnvelope, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { useState } from "react";
-import { FaAngleDoubleDown } from "react-icons/fa";
-import { FaAngleUp, FaAngular } from "react-icons/fa6";
+import { CiSearch } from "react-icons/ci";
+import { FaAngleUp,  FaUserAstronaut } from "react-icons/fa6";
+import MainPortal from "./MainPortal/MainPortal";
+import RequestForm from "./EnqueryForm";
+import Login from "./Login/Login";
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,7 +24,11 @@ export default function Header() {
     "Shop By Style",
     "Stores",
   ];
-
+const [openForm, setOpenForm] = useState(false);
+  const handleFormSubmit = (data) => {
+    console.log("Form Data Submitted:", data);
+    alert("Request Submitted Successfully ✅");
+  };
   return (
     <>
       {/* DARK OVERLAY */}
@@ -45,15 +53,59 @@ export default function Header() {
 
       {/* HEADER */}
       <header className={styles.header}>
-        <nav className="container ">
-                 <div className="d-flex justify-content-between  align-items-center ">
-          {/* LOGO */}
-          <Link href="/" className={styles.logo}>
-            DTALE<strong>MODERN</strong>
-          </Link>
+        <nav className=" container-xl  container-fluid-lg" >
+                
+                <div className="row">
+                      <div className="col-3">
+                          <Link href="/" className={styles.logo}>
+                                DTALE<strong>MODERN</strong>
+                          </Link>
+                       </div>
+                        <div className="col-6">
+                        <ul className={styles.navMenu}>
+            <li className={styles.navItem1}> Best Sellers</li>
+            <li className={styles.navItem1}> Design Masters</li>
+            <li className={styles.navItem1}> Free Design Services</li>
+            <li className={styles.navItem1}>Partner Program</li>
+            </ul>
+                    <button
+            className={styles.mobileMenuBtn}
+            onClick={() => setSidebarOpen(true)}
+          >
+            ☰
+          </button>
+
+                        </div>
+
+
+                         <div className="col-3">
+                        <ul className={styles.navMenu}>
+            <li className={styles.navItem1} onClick={()=>setOpenForm(true)}> <FaRegUser className="mb-1" size={15}/> Login</li>
+            <li  className={styles.navItem1}><CiSearch size={22}/></li>
+            <li  className={styles.navItem1}><FaRegHeart size={20}/></li>
+            <li  className={styles.navItem1}><FaRegEnvelope size={20}/></li>
+           
+            </ul>
+              
+
+                        </div>
+                </div>
+                
+             
+                
+                
+              
+         {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
+                                    <Login
+                                        onSubmit={handleFormSubmit}
+                                        onClose={() => setOpenForm(false)}
+                                    />
+                                </MainPortal>}
+     
 
           {/* DESKTOP MENU */}
-          <ul className={styles.navMenu}>
+        
+             <ul className={styles.navMenu}>
             {menuItems.map((item) => (
               <li
                 key={item}
@@ -114,15 +166,10 @@ export default function Header() {
               </li>
             ))}
           </ul>
+     
+     
 
-          {/* MOBILE MENU BTN */}
-          <button
-            className={styles.mobileMenuBtn}
-            onClick={() => setSidebarOpen(true)}
-          >
-            ☰
-          </button>
-          </div>
+      
         </nav>
       </header>
     </>

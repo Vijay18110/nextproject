@@ -6,19 +6,19 @@ import Slider from "../ExternalLib/Carousel/Carousel";
 
 export const sliderData = [
   {
+    id: 1,
+    type: "video",
+    src: "/video/Most-Exclusive-Smart-Table-in-the-World.mp4",
+    bgColor: "#F7F7F7",
+  },
+  
+  {
     id: 2,
     type: "video",
     src: "/video/epoxy_LampVideo.mp4",
   
     bgColor: "#000000",
   },
-  {
-    id: 1,
-    type: "video",
-    src: "/video/Most-Exclusive-Smart-Table-in-the-World.mp4",
-    bgColor: "#F7F7F7",
-  },
-
   {
     id: 3,
     type: "video",

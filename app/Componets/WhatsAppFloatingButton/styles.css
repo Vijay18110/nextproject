@@ -1,0 +1,20 @@
+ 
+        button:focus {
+          outline: 3px solid rgba(37,211,102,0.25);
+          outline-offset: 4px;
+        }
+
+        div:hover + .whatsapp-tooltip,
+        button:hover + .whatsapp-tooltip,
+        button:focus + .whatsapp-tooltip {
+          opacity: 1 !important;
+          transform: translateX(0) !important;
+        }
+
+        /* small responsive tweak */
+        @media (max-width: 640px) {
+          .whatsapp-tooltip {
+            display: none;
+          }
+        }
+    
