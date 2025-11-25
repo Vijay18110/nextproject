@@ -9,7 +9,7 @@ export const sliderData = [
     id: 2,
     type: "video",
     src: "/video/epoxy_LampVideo.mp4",
-  
+
     bgColor: "#000000",
   },
   {
@@ -22,7 +22,7 @@ export const sliderData = [
   {
     id: 3,
     type: "video",
-    src: "/video/The-touch-sensitive-river-table-offers-a-captivating-and-interactive-experience-for-users..mp4",   
+    src: "/video/The-touch-sensitive-river-table-offers-a-captivating-and-interactive-experience-for-users..mp4",
     bgColor: "#EFEFEF",
   },
 ];
@@ -85,7 +85,7 @@ const HeroSlider = () => {
   const offset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="w-100 position-sticky">
+    <div className="w-100 position-sticky top-0">
       <Slider onSlideChange={handleSlideChange}>
         {sliderData.map((slide, index) => (
           <section

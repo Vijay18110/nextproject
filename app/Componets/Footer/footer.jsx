@@ -48,6 +48,9 @@ const Footer = () => {
             <li><Link href="/About">About Us</Link></li>
             <li><Link href="/Contact">Contacts</Link></li>
             <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
+            <li><Link href="/Epoxy">Epoxy</Link></li>
+            <li><Link href="/Smart-Bench">Smart-Bench</Link></li>
+            <li><Link href="/Toys">Toys</Link></li>
 
           </ul>
         </div>
@@ -75,7 +78,7 @@ const Footer = () => {
         </div>
 
         {/* SUBSCRIBE */}
-    
+
       </div>
 
       <div className={styles.bottomBar}>

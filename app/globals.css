@@ -292,7 +292,6 @@ body {
   text-align: center;
 }
 
-
 .submenu-hover {
   transition: all 0.2s ease-in-out;
 }
@@ -302,5 +301,4 @@ body {
   /* light primary tint */
   color: #0d6efd;
   /* bootstrap primary */
-  transform: translateX(4px);
 }

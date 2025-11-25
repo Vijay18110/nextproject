@@ -1,7 +1,7 @@
 export const MainCategories = [
   {
     id: 1,
-    title: "Epoxy Furniture",
+    title: "Epoxy",
     image: "/images/bg/2.jpg",
     description:
       "Elegant and durable epoxy furniture with custom resin finishes that elevate interiors.",

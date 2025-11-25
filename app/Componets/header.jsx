@@ -37,7 +37,7 @@ const Header = () => {
     {
       name: "Products",
       icon: <FaBoxOpen />,
-      href:"#",
+      href: "#",
       submenu: [
         { name: "Smart Bench", href: "/Smart-Bench", icon: <FaCogs /> },
         { name: "Epoxy", href: "/Epoxy", icon: <FaCube /> },
@@ -60,7 +60,7 @@ const Header = () => {
   const toggleSubMenu = (name) => {
     setActiveSubMenu(activeSubMenu === name ? null : name);
   };
-const router=useRouter()
+  const router = useRouter()
   return (
     <header className="position-fixed top-0 start-0 w-100 bg-white bg-opacity-90 backdrop-blur border-bottom shadow-sm z-3">
       <nav className="container d-flex justify-content-between align-items-center py-3 px-3">
@@ -91,7 +91,7 @@ const router=useRouter()
                         className="position-absolute start-0 mt-2 list-unstyled shadow-lg rounded-3 bg-white py-2 w-48 border"
                         style={{ top: "100%", minWidth: "220px" }}>
                         {link.submenu.map((sub) => (
-                          <motion.li key={sub.href} whileHover={{ scale: 1.03, x: 3 }} whileTap={{ scale: 0.97 }}>
+                          <motion.li key={sub.href} whileHover={{ scale: 1.01, x: 0 }} whileTap={{ scale: 0.97 }}>
                             <Link href={sub.href}
                               className="d-flex align-items-center gap-2 px-3 py-2 text-decoration-none text-dark fw-semibold rounded-2 submenu-hover">
                               {sub.icon && (
@@ -134,15 +134,15 @@ const router=useRouter()
             {navLinks.map((link, idx) => (
               <div key={idx}>
                 <motion.div whileTap={{ scale: 0.97 }}>
-                  <Link href={link.href} onClick={()=>{
-                    if(link.href!="#"){
+                  <Link href={link.href} onClick={() => {
+                    if (link.href != "#") {
                       router.push(link.href)
                       setIsOpen(false)
                     }
-                    else{
-                      
-                    toggleSubMenu(link.name);
-                  
+                    else {
+
+                      toggleSubMenu(link.name);
+
                     }
                   }}
                     className={`d-flex align-items-center justify-content-between px-3 py-2 rounded-3 text-decoration-none fw-semibold mb-2 ${pathname === link.href

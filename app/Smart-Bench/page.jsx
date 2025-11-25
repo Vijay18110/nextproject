@@ -13,18 +13,18 @@ import BannerPage from '../Shared/BannerPage/BannerPage'
 import useWindowWidth from '../Hooks/useWindow.js'
 
 export default function SolarBenchPage() {
-    const width=useWindowWidth()
+  const width = useWindowWidth()
 
- const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
-    laptop: { breakpoint: { max: 1424, min: 1024 }, items:3 , slidesToSlide: 1 ,partialVisibilityGutter:width>480?70:width>402?30:2},
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1,partialVisibilityGutter:width>480?70:width>402?30:2},
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1,partialVisibilityGutter:width>480?70:width>402?30:2 },
+  const responsive = {
+    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    laptop: { breakpoint: { max: 1424, min: 1024 }, items: 3, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
   };
   const products = [
     {
       id: 1,
-      name: "Solar Bench X1",
+      title: "Solar Bench X1",
       description:
         "High-efficiency solar panel powers LED lighting and dual USB charging ports for sustainable public spaces.",
       image: "/images/solar-bench1.jpg",
@@ -32,7 +32,7 @@ export default function SolarBenchPage() {
     },
     {
       id: 2,
-      name: "Eco Solar Bench Pro",
+      title: "Eco Solar Bench Pro",
       description:
         "Advanced smart bench with IoT connectivity, wireless charging, and eco-friendly design using recycled materials.",
       image: "/images/solar-bench2.jpg",
@@ -40,7 +40,7 @@ export default function SolarBenchPage() {
     },
     {
       id: 3,
-      name: "Solar Smart Hub",
+      title: "Solar Smart Hub",
       description:
         "Compact urban smart bench powered by solar panels, equipped with Wi-Fi hotspot and LED ambient lighting.",
       image: "/images/solar-bench3.jpg",
@@ -48,7 +48,7 @@ export default function SolarBenchPage() {
     },
     {
       id: 5,
-      name: "Eco Solar Bench Pro",
+      title: "Eco Solar Bench Pro",
       description:
         "Advanced smart bench with IoT connectivity, wireless charging, and eco-friendly design using recycled materials.",
       image: "/images/solar-bench2.jpg",
@@ -56,7 +56,7 @@ export default function SolarBenchPage() {
     },
     {
       id: 4,
-      name: "Solar Smart Hub",
+      title: "Solar Smart Hub",
       description:
         "Compact urban smart bench powered by solar panels, equipped with Wi-Fi hotspot and LED ambient lighting.",
       image: "/images/solar-bench3.jpg",

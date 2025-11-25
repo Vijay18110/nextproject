@@ -15,8 +15,9 @@ const ProductCard = ({ item }) => {
     console.log("Form submitted:", data);
     // 🔹 You can integrate your API call or toast here
   };
+  console.log(item)
   return (
-    <div style={{cursor: "pointer"}} className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
+    <div style={{ cursor: "pointer" }} className={styles.productCard} key={item.id} onClick={() => router.push(`/product-details/${slugify(item?.title)}`)}>
       <div className={styles.productImage}>
         <img lazy="loading" src={item?.image} alt={item?.title} className=" rounded-bottom-4 shadow" />
         <div className={`${styles.tag} ${styles.type}`}>{item?.type}</div>
@@ -25,20 +26,19 @@ const ProductCard = ({ item }) => {
         </button>
       </div>
       <div className={styles?.productInfo}>
-        <h3 className="my-2">{item?.title}</h3>
+        <h3 className="my-2 ">{item?.title}</h3>
         <p className={styles.desc}>{item?.description}</p>
-        <div className="d-flex gap-3 mb-4">
+        <div className="d-flex gap-3 mb-4 z-3">
           <Button handleNavigate={(e) => {
             e.stopPropagation()
             setOpenForm(true)
           }} className="btn onHover btn-dark px-4 py-2 rounded-pill fw-semibold d-flex align-items-center gap-2">
             <FiGitPullRequest /> Request
           </Button>
-          {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
+          {openForm && <MainPortal handleCloseModal={(e) => { e.stopPropagation(), setOpenForm(false) }}  >
             <RequestForm
               onSubmit={handleFormSubmit}
-              onClose={() => setOpenForm(false)}
-
+              onClose={(e) => { e.stopPropagation(), setOpenForm(false) }}
             />
           </MainPortal>}
         </div>

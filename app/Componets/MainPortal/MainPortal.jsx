@@ -51,7 +51,7 @@ const MainPortal = ({ children, handleCloseModal }) => {
   const handleClickOverlay = (e) => {
     // Only close if clicked directly on the overlay, not modal content
     if (e.target === e.currentTarget) {
-      handleCloseModal();
+      handleCloseModal(e);
     }
   };
 
