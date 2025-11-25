@@ -1,121 +1,117 @@
-
-'use client'
 import React from "react";
-import styles from "./Footer.module.css";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import Button from '../../Shared/Button'
-import {
-  FaApple,
-  FaGooglePlay,
-  FaEnvelope,
-  FaPhone,
-  FaFacebookF,
-  FaXTwitter,
-  FaInstagram,
-  FaTiktok,
-  FaYoutube,
-  FaArrowUp,
-} from "react-icons/fa6";
-import Link from "next/link";
+import "./Footer.css";
+import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
+
+
+export const footerData = {
+  about: [
+    "Why Us",
+    "Testimonials",
+    "Awards & Recognition",
+    "Measure Your Space",
+    "Care and Maintenance",
+    "Blog",
+    "Contact Us",
+  ],
+
+  services: [
+    "Partner Program",
+    "Design Projects",
+    "Collaborators",
+    "FAQ",
+  ],
+
+  shop: [
+    "Furniture",
+    "Collections",
+    "Accents",
+    "Art",
+  ],
+
+  terms: [
+    "Privacy Policy",
+    "Return Policy",
+    "Shipping Policy",
+    "Warranty Policy",
+  ],
+};
 
 const Footer = () => {
   return (
-    <footer className={styles.footer} key={100}>
-      <div className={styles.backToTop}>
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <FaArrowUp />
-        </button>
-      </div>
+    <footer className="footer-section py-5">
+      <div className="container">
 
-      <div className={styles.footerContent}>
-        {/* GET OUR APPLICATION */}
-        <div className={styles.footerCol}>
-          <h3>GET OUR APPLICATION</h3>
-          <div className={styles.divider}></div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Eaque
-            ipsa quae ab illo inventore veritatis et quasi architecto.
-          </p>
+        <div className="row mb-5">
+          {/* About */}
+          <div className="col-md-2 col-sm-6 mb-4">
+            <h6 className="footer-title">About Us</h6>
+            <ul className="footer-list">
+              {footerData.about.map((item, i) => (
+                <li key={i}><a href="#">{item}</a></li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Services */}
+          <div className="col-md-2 col-sm-6 mb-4">
+            <h6 className="footer-title">Services</h6>
+            <ul className="footer-list">
+              {footerData.services.map((item, i) => (
+                <li key={i}><a href="#">{item}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Shop */}
+          <div className="col-md-2 col-sm-6 mb-4">
+            <h6 className="footer-title">Shop</h6>
+            <ul className="footer-list">
+              {footerData.shop.map((item, i) => (
+                <li key={i}><a href="#">{item}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Terms */}
+          <div className="col-md-3 col-sm-6 mb-4">
+            <h6 className="footer-title">Terms and Conditions</h6>
+            <ul className="footer-list">
+              {footerData.terms.map((item, i) => (
+                <li key={i}><a href="#">{item}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="col-md-3 col-sm-12">
+            <h6 className="footer-title">Sign up for emails packed with finds and inspiration</h6>
+
+            <div className="footer-newsletter">
+              <input 
+                type="email" 
+                placeholder="Enter Your Email Id" 
+                className="form-control email-input"
+              />
+              <button className="btn subscribe-btn">Subscribe</button>
+            </div>
+
+            <div className="footer-social mt-4 d-flex gap-4">
+              <a href="#"><FaFacebookF /></a>
+              <a href="#"><FaYoutube /></a>
+              <a href="#"><FaInstagram /></a>
+            </div>
+          </div>
         </div>
 
-        {/* HELPFUL LINKS */}
-        <div className={styles.footerCol}>
-          <h3>HELPFUL LINKS</h3>
-          <div className={styles.divider}></div>
-          <ul>
-            <li><Link href="/About">About Us</Link></li>
-            <li><Link href="/Contact">Contacts</Link></li>
-            <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
-            <li><Link href="/Epoxy">Epoxy</Link></li>
-            <li><Link href="/Smart-Bench">Smart-Bench</Link></li>
-            <li><Link href="/Toys">Toys</Link></li>
-
-          </ul>
+        {/* Bottom Part */}
+        <div className="footer-bottom d-flex justify-content-between mt-4 pt-3">
+          <p className="m-0">© 2025 Dtale Modern</p>
+          <p className="m-0">Designed by: <a href="#">Webandcrafts</a></p>
         </div>
 
-        {/* OUR CONTACTS */}
-        <div className={styles.footerCol}>
-          <h3>OUR CONTACTS</h3>
-          <div className={styles.divider}></div>
-          <ul className={styles.contactList}>
-            <li>
-              <Link href="mailto:yourmail@domain.com" className={styles.contactItem}>
-                <FaEnvelope /> yourmail@domain.com
-              </Link>
-            </li>
-            <li>
-              <FaMapMarkerAlt /> USA 27th Brooklyn NY
-            </li>
-            <li>
-              <Link href="tel:+919628554907" className={styles.contactItem}>
-                <FaPhone /> +91 9628554907
-              </Link>
-            </li>
-          </ul>
-          <Button className={styles.contactBtn} text="Get in Touch" />
-        </div>
-
-        {/* SUBSCRIBE */}
-
-      </div>
-
-      <div className={styles.bottomBar}>
-        <p>©RentState 2024. All Rights Reserved.</p>
-        <SocialIcons />
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
-
-
-const SocialIcons = () => {
-  const socials = [
-    { icon: <FaFacebookF />, link: "https://facebook.com" },
-    { icon: <FaXTwitter />, link: "https://x.com" },
-    { icon: <FaInstagram />, link: "https://instagram.com" },
-    { icon: <FaTiktok />, link: "https://tiktok.com" },
-    { icon: <FaYoutube />, link: "https://youtube.com" },
-  ];
-
-  return (
-    <div className={styles.socialIcons}>
-      {socials.map((s, i) => (
-        <a
-          key={i}
-          href={s.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.iconLink}
-        >
-          {s.icon}
-        </a>
-      ))}
-    </div>
-  );
-};
-

@@ -1,14 +1,17 @@
+"use client";
 import { useEffect, useState } from "react";
 
 const useWindowWidth = () => {
-    const [width, setWidth] = useState(
-        typeof window !== "undefined" ? window.innerWidth : 0
-    );
+    const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        if (typeof window === "undefined") return; // guard for SSR
+        if (typeof window === "undefined") return;
+
         const handleResize = () => setWidth(window.innerWidth);
+
+        handleResize(); // set initial width
         window.addEventListener("resize", handleResize);
+
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
