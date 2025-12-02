@@ -67,8 +67,6 @@ const Registration = ({ onClose, onSubmit ,setIsRegistering}) => {
                             },
                         })}
                         className={`form-control  p-1   ${errors.name ? "is-invalid" : ""}`}
-
-
                         placeholder="Enter your email"
                     />
                     <label >Email <strong className="text-danger">*</strong></label>
@@ -78,7 +76,6 @@ const Registration = ({ onClose, onSubmit ,setIsRegistering}) => {
 
                 {/* Phone */}
                 <div className="form-floating m-2">
-
                     <input
                         type="password"
                         {...register("password", {
@@ -95,7 +92,7 @@ const Registration = ({ onClose, onSubmit ,setIsRegistering}) => {
 
                 {/* Message */}
  
-                    <p className="text-end">Already have an account? <strong onClick={() => setIsRegistering(false)} className="text-primary">Sign In</strong>
+                    <p className="text-end">Already have an account? <strong style={{cursor:"pointer"}} onClick={() => setIsRegistering(false)} className="text-primary">Sign In</strong>
 </p>
                 <div className=" d-flex justify-content-center" >
                     <Button
