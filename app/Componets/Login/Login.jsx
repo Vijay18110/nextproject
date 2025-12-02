@@ -67,7 +67,7 @@ const Login = ({ onClose, onSubmit }) => {
                     {/* Message */}
 
             
-                    <p className="text-end">Don't have an account? <strong onClick={() => setIsRegistering(true)}  className="text-primary">Sign Up</strong>
+                    <p className="text-end">Don't have an account? <strong style={{cursor:"pointer"}} onClick={() => setIsRegistering(true)}  className="text-primary">Sign Up</strong>
                     </p>
                     <div className=" d-flex justify-content-center" >
                         <Button
