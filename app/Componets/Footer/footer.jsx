@@ -228,11 +228,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className={`d-flex justify-content-between ${styles.footerBottom}`}>
-          <p className="m-0">© 2025 Dtale Modern</p>
-          <p className="m-0">
+        <div className={` ${styles.footerBottom}`}>
+          <p className="m-0 py-2 text-center">© {new Date().getFullYear()} Infiniox Private Limited</p>
+          {/* <p className="m-0">
             Designed by: <Link href="#"></Link>
-          </p>
+          </p> */}
         </div>
 
       </div>

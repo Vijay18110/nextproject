@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
         {/* <SocialMediaBar /> */}
         <WhatsAppFloatingButton/>
         <Header />
-        <div className="bg-light" style={{ marginTop: "75px" }}>
+        <div className="bg-light"  >
           {children}
         </div>
         <Footer />
