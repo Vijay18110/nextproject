@@ -29,8 +29,8 @@ const contactInfo = [
   {
     icon: <FaEnvelope />,
     title: "Our Mail",
-    text: "vijayraj.mfs@gmail.com",
-    link: "mailto:vijayraj.mfs@gmail.com",
+    text: "info@infiniox.com",
+    link: "mailto:info@infiniox.com",
     gradient: "linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)",
   },
   {

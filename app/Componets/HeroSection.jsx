@@ -38,14 +38,12 @@ const HeroSlider = () => {
   useEffect(() => {
     const video = videoRefs.current[activeIndex];
     if (!video) return;
-
     const updateProgress = () => {
       if (video.duration) {
         setProgress((video.currentTime / video.duration) * 100);
         setElapsedTime(Math.floor(video.currentTime));
       }
     };
-
     video.addEventListener("timeupdate", updateProgress);
     return () => video.removeEventListener("timeupdate", updateProgress);
   }, [activeIndex]);

@@ -15,7 +15,7 @@ const Slider = ({ children, responsive, showDot = true, onSlideChange,partialVis
     <Carousel
       swipeable={true}
       draggable={true}
-      showDots={showDot}
+      // showDots={showDot}
       responsive={responsive || defaultResponsive}
       ssr={true}
     partialVisible={partialVisible}

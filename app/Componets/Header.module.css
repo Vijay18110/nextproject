@@ -56,11 +56,11 @@
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
-
+/* 
 .navItem:hover {
   color: var(--main-color);
-  transform: translateX(8px); /* Increased slightly for impact */
-}
+  transform: translateX(8px);
+} */
 
 .navItem:hover::after {
   transform: scaleX(1); /* Show on hover */

@@ -124,14 +124,11 @@ import styles from "./Footer.module.css";
 import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 
 export const footerData = {
-  about: [
-    "Why Us",
-    "Testimonials",
-    "Awards & Recognition",
-    "Measure Your Space",
-    "Care and Maintenance",
-    "Blog",
-    "Contact Us",
+  Pages: [
+   { name:"Home",link:"/"},
+   { name:"About",link:"/About"},
+   { name:"Products",link:"/Products"},
+   { name:"Contact Us",link:"/Contact"},
   ],
 
   services: [
@@ -149,10 +146,10 @@ export const footerData = {
   ],
 
   terms: [
-    "Privacy Policy",
-    "Return Policy",
-    "Shipping Policy",
-    "Warranty Policy",
+    {name:"Privacy Policy",link:"/privacyPolicy"},
+    {name:"Return Policy",link:"/return-policy"},
+    {name:"Shipping Policy",link:"/shipping-policy"},
+    
   ],
 };
 
@@ -164,17 +161,17 @@ const Footer = () => {
         <div className="row py-5">
 
           {/* About */}
-          <div className="col-md-2 col-sm-6 mb-4">
-            <h6 className={styles.footerTitle}>About Us</h6>
+          <div className="col-md-3 col-sm-6 mb-4">
+            <h6 className={styles.footerTitle}>Pages</h6>
             <ul className={styles.footerList}>
-              {footerData.about.map((item, i) => (
-                <li key={i}><Link href="#">{item}</Link></li>
+              {footerData.Pages.map((item, i) => (
+                <li key={i}><Link href={item?.link}>{item?.name}</Link></li>
               ))}
             </ul>
           </div>
 
           {/* Services */}
-          <div className="col-md-2 col-sm-6 mb-4">
+          <div className="col-md-3 col-sm-6 mb-4">
             <h6 className={styles.footerTitle}>Services</h6>
             <ul className={styles.footerList}>
               {footerData.services.map((item, i) => (
@@ -184,21 +181,21 @@ const Footer = () => {
           </div>
 
           {/* Shop */}
-          <div className="col-md-2 col-sm-6 mb-4">
+          {/* <div className="col-md-2 col-sm-6 mb-4">
             <h6 className={styles.footerTitle}>Shop</h6>
             <ul className={styles.footerList}>
               {footerData.shop.map((item, i) => (
                 <li key={i}><Link href="#">{item}</Link></li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Terms */}
           <div className="col-md-3 col-sm-6 mb-4">
             <h6 className={styles.footerTitle}>Terms & Conditions</h6>
             <ul className={styles.footerList}>
               {footerData.terms.map((item, i) => (
-                <li key={i}><Link href="#">{item}</Link></li>
+                <li key={i}><Link href={item?.link}>{item?.name}</Link></li>
               ))}
             </ul>
           </div>
