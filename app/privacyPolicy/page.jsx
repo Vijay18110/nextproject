@@ -111,25 +111,7 @@ const PrivacyPolicy = () => {
                         </motion.div>
 
                         {/* 5️⃣ Contact Info */}
-                        <motion.div
-                            className="card border-0 shadow-sm rounded-4"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="card-body p-4 text-center">
-                                <h4 className="fw-bold text-dark mb-3">Contact Us</h4>
-                                <p className="text-muted">
-                                    If you have any questions or concerns about this Privacy
-                                    Policy, please contact us at:
-                                </p>
-                                <p className="fw-semibold mb-0">
-                                    📧 support@yourcompany.com <br /> 📍 123 Business Street,
-                                    Innovation City, USA
-                                </p>
-                            </div>
-                        </motion.div>
+                     
                     </div>
                 </div>
             </div>

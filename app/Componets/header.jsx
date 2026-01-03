@@ -1,13 +1,18 @@
 "use client";
 import Link from "next/link";
 import styles from "./Header.module.css";
-import { FaRegEnvelope, FaRegHeart, FaRegUser } from "react-icons/fa";
+import { FaHome, FaPhone, FaProductHunt, FaRegEnvelope, FaRegHeart, FaRegUser } from "react-icons/fa";
 import { useMemo, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaAngleUp } from "react-icons/fa6";
+import { IoMdContact } from "react-icons/io";
 import MainPortal from "./MainPortal/MainPortal";
+import { FcViewDetails } from "react-icons/fc";
 import Login from "./Login/Login";
 import useWindowWidth from "../Hooks/useWindow";
+import { BsTicketDetailedFill } from "react-icons/bs";
+ import {motion} from 'framer-motion'
+import { useRouter } from "next/navigation";
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,9 +34,12 @@ export default function Header() {
   };
 
   const width = useWindowWidth();
-
+const router=useRouter();
 
   console.log(width)
+  const handleNavigate=(link)=>{
+    router.push(link);
+  }
   return (
     <>
       {/* DARK OVERLAY */}
@@ -56,26 +64,56 @@ export default function Header() {
       {/* HEADER */}
       <header className={styles.header}>
         <nav className="container-xl  container-fluid">
-          <div className="row d-flex align-items-center justify-content-center">
-            <div className="col-3">
+          <div className=" d-flex align-items-center  justify-content-between">
+            <div className="">
               <Link href="/" className={styles.logo}>
-                DTALE<strong>MODERN</strong>
+                {/* DTALE<strong>MODERN</strong> 
+                */}
+                <img className="" style={{
+                  width:"100px",
+                  height:"46px"
+                }} src="/logo2.png" alt="" />
               </Link>
             </div>
-            <div className="col-6" style={width < 992 ? { display: "none" } : { display: "block" }}>
+            {/* <div className="col-6" style={width < 992 ? { display: "none" } : { display: "block" }}>
               <ul className={styles.navMenu}>
                 <li className={styles.navItem1}>Best Sellers</li>
                 <li className={styles.navItem1}>Design Masters</li>
                 <li className={styles.navItem1}>Free Design Services</li>
                 <li className={styles.navItem1}>Partner Program</li>
               </ul>
-            </div>
-            <div className={` ${(width == 992 || width < 992) ? 'col-8' : 'col-3'}`}>
+            </div> */}
+            <ul className={`${styles.navMenu} gap-4`}>
+              <li  onClick={()=>handleNavigate("/")} className={styles.navItem}><FaHome className="" size={13}/> Home</li>
+              <li onClick={()=>handleNavigate("/Products")} className={styles.navItem}> <FaProductHunt/>    Products</li>
+              <li onClick={()=>handleNavigate("/About")} className={styles.navItem}><BsTicketDetailedFill  />    About Us</li>
+              <li onClick={()=>handleNavigate("/Contact")} className={styles.navItem}><IoMdContact />    Contact Us</li>  
+            </ul>
+
+            {/* <div className={` ${(width == 992 || width < 992) ? 'col-8' : 'col-3'}`}> */}
               <ul className={styles.navMenuRight}>
-                <li className={styles.navItem1} onClick={() => setOpenForm(true)}> <FaRegUser className="mb-1" size={15} /> Login</li>
-                <li className={styles.navItem1}><CiSearch size={22} /></li>
-                <li className={styles.navItem1}><FaRegHeart size={20} /></li>
-                <li className={styles.navItem1}><FaRegEnvelope size={20} /></li>
+                {/* <li className={styles.navItem1} onClick={() => setOpenForm(true)}> <FaRegUser className="mb-1" size={15} /> Login</li> */}
+<motion.li 
+    className={styles.navItem1} 
+    whileHover={{ y: -2 }}
+    onClick={() => setOpenForm(true)}
+  >
+    <a href="tel:+919628554907" className={styles.link}>
+      <FaPhone className="me-2" size={12} />
+      91+ 9628554907
+    </a>
+  </motion.li>
+
+  {/* Email Link */}
+  <motion.li 
+    className={styles.navItem1}
+    whileHover={{ y: -2 }}
+  >
+    <a href="mailto:info@infiniox.com" className={styles.link}>
+      <FaRegEnvelope size={12} className="me-2" />
+      info@infiniox.com
+    </a>
+  </motion.li>
                 <li className={styles.navItem1}>
                   <button
                     className={styles.mobileMenuBtn}
@@ -86,17 +124,17 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-          </div>
+          {/* </div> */}
 
-          {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
+          {/* {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
             <Login
               onSubmit={handleFormSubmit}
               onClose={() => setOpenForm(false)}
             />
-          </MainPortal>}
+          </MainPortal>} */}
           {/* DESKTOP MENU */}
 
-          <ul className={styles.navMenu}>
+          {/* <ul className={styles.navMenu}>
             {menuItems.map((item) => (
               <li
                 key={item}
@@ -109,7 +147,6 @@ export default function Header() {
                   {item === "Decor" && <FaAngleUp size={16} className={styles.downIcon} />}
                 </small>
 
-                {/* DECOR MEGA MENU */}
                 {activeMenu === item && item === "Decor" && (
                   <div className={styles.megamnauCont}>
                     <div className={styles.megaMenu}>
@@ -156,7 +193,7 @@ export default function Header() {
                 )}
               </li>
             ))}
-          </ul>
+          </ul> */}
 
 
 

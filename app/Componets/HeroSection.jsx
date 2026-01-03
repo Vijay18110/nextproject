@@ -8,23 +8,23 @@ export const sliderData = [
   {
     id: 1,
     type: "video",
-    src: "/video/Most-Exclusive-Smart-Table-in-the-World.mp4",
+    src: "/01-01-2026.mp4",
     bgColor: "#F7F7F7",
   },
   
-  {
-    id: 2,
-    type: "video",
-    src: "/video/epoxy_LampVideo.mp4",
+  // {
+  //   id: 2,
+  //   type: "video",
+  //   src: "/video/epoxy_LampVideo.mp4",
 
-    bgColor: "#000000",
-  },
-  {
-    id: 3,
-    type: "video",
-    src: "/video/The-touch-sensitive-river-table-offers-a-captivating-and-interactive-experience-for-users..mp4",
-    bgColor: "#EFEFEF",
-  },
+  //   bgColor: "#000000",
+  // },
+  // {
+  //   id: 3,
+  //   type: "video",
+  //   src: "/video/The-touch-sensitive-river-table-offers-a-captivating-and-interactive-experience-for-users..mp4",
+  //   bgColor: "#EFEFEF",
+  // },
 ];
 
 const HeroSlider = () => {
@@ -38,14 +38,12 @@ const HeroSlider = () => {
   useEffect(() => {
     const video = videoRefs.current[activeIndex];
     if (!video) return;
-
     const updateProgress = () => {
       if (video.duration) {
         setProgress((video.currentTime / video.duration) * 100);
         setElapsedTime(Math.floor(video.currentTime));
       }
     };
-
     video.addEventListener("timeupdate", updateProgress);
     return () => video.removeEventListener("timeupdate", updateProgress);
   }, [activeIndex]);
