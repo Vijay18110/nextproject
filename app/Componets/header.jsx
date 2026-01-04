@@ -17,15 +17,19 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const menuItems = [
-    "New",
-    "Collections",
-    "Furniture",
-    "Outdoor",
-    "Decor",
-    "Lightings",
-    "Ready to Ship",
-    "Shop By Style",
-    "Stores",
+    // "New",
+    // "Collections",
+    // "Furniture",
+    // "Outdoor",
+    // "Decor",
+    // "Lightings",
+    // "Ready to Ship",
+    // "Shop By Style",
+    // "Stores",
+    {name:"Home",link:"/"},
+    {name:"Product",link:"/Products"},
+    {name:"About Us",link:"/About"},
+    {name:"Contact Us",link:"/Contact"},
   ];
   const [openForm, setOpenForm] = useState(false);
   const handleFormSubmit = (data) => {
@@ -55,8 +59,10 @@ const router=useRouter();
 
         <ul className={styles.mobileList}>
           {menuItems.map((item) => (
-            <li key={item} className={styles.mobileItem}>
-              {item}
+            <li key={item?.name} className={styles.mobileItem}>
+              <Link onClick={() => setSidebarOpen(false)} className="text-dark" href={item?.link}>
+                {item?.name}
+              </Link>
             </li>
           ))}
         </ul>

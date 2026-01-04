@@ -43,10 +43,8 @@ const contactInfo = [
 ];
 
 const Contact = () => (
-  <selection>
+  <>
     <BannerPage text={"Contact"} banner={"./images/bg/8.jpg"} />
-
-
     <div className="container-fluid  bg-light ">
       {/* Contact Info Section */}
       <div className="row text-center mb-5 mt-5">
@@ -65,7 +63,7 @@ const Contact = () => (
         </div>
       </div>
     </div>
-  </selection>
+  </>
 );
 
 export default Contact;
