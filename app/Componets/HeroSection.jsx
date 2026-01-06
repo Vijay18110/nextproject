@@ -11,7 +11,7 @@ export const sliderData = [
     src: "/01-01-2026.mp4",
     bgColor: "#F7F7F7",
   },
-  
+
   // {
   //   id: 2,
   //   type: "video",
@@ -57,7 +57,7 @@ const HeroSlider = () => {
       if (!vid) return;
       if (i === index) {
         vid.currentTime = 0;
-        vid.play().catch(() => { });
+        vid.play().catch(() => {});
         setIsPlaying(true);
       } else {
         vid.pause();
@@ -77,13 +77,12 @@ const HeroSlider = () => {
       setIsPlaying(false);
     }
   };
-
   const radius = 22;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="w-100 position-sticky top-0">
+    <div className="w-100 position-sticky top-0 ">
       <Slider onSlideChange={handleSlideChange}>
         {sliderData.map((slide, index) => (
           <section
@@ -108,7 +107,7 @@ const HeroSlider = () => {
                 className="object-fit-contain"
               />
             )}
- 
+
             <div className="position-absolute bottom-0 start-0 p-5 text-dark">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}

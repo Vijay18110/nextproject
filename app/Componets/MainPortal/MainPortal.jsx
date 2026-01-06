@@ -59,9 +59,7 @@ const MainPortal = ({ children, handleCloseModal }) => {
     <div className={styles.overLay} onClick={handleClickOverlay}>
       <div className="button cut-btn"></div>
       <div className={styles.modalContainer}>
-        <div className={styles.modal}>
-          {children}
-        </div>
+        <div className={styles.modal}>{children}</div>
       </div>
     </div>,
     document.getElementById("modal")
