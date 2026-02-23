@@ -35,34 +35,28 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-
-
-
-
-
-
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-    FaRupeeSign,
-    FaPhoneAlt,
-    FaWhatsapp,
-    FaIndustry,
-    FaCubes,
-    FaWeightHanging,
-    FaCheckCircle,
+FaRupeeSign,
+FaPhoneAlt,
+FaWhatsapp,
+FaIndustry,
+FaCubes,
+FaWeightHanging,
+FaCheckCircle,
 } from "react-icons/fa";
 
 const ProductDetails = () => {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
+const [form, setForm] = useState({
+name: "",
+email: "",
+phone: "",
+message: "",
+});
 
     const handleChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -74,7 +68,7 @@ const ProductDetails = () => {
 
     const whatsappMessage="hello ";
     const whatsappUrl = `https://wa.me/9628554907?text=${whatsappMessage}`;
-    
+
     return (
         <section className="container-fluid py-5 bg-light">
             <div className="row g-4">
@@ -233,58 +227,58 @@ const ProductDetails = () => {
             </div >
         </section >
     );
+
 };
 
 export default ProductDetails;
 
 // ---------- FEATURES SECTION ----------
 const features = [
-    {
-        title: "4K Ultra HD Display",
-        desc: "Crisp and lifelike visuals with Quantum Dot technology for enhanced color contrast.",
-    },
-    {
-        title: "Smart Connectivity",
-        desc: "Built-in Wi-Fi, multiple HDMI ports, and voice assistant compatibility.",
-    },
-    {
-        title: "Power Efficient",
-        desc: "Energy-saving technology ensures longer lifespan with reduced consumption.",
-    },
-    {
-        title: "Premium Audio",
-        desc: "Dolby Digital+ speakers with deep bass and surround sound experience.",
-    },
-    {
-        title: "Elegant Design",
-        desc: "Slim bezel, lightweight frame, and wall-mount support for a modern setup.",
-    },
+{
+title: "4K Ultra HD Display",
+desc: "Crisp and lifelike visuals with Quantum Dot technology for enhanced color contrast.",
+},
+{
+title: "Smart Connectivity",
+desc: "Built-in Wi-Fi, multiple HDMI ports, and voice assistant compatibility.",
+},
+{
+title: "Power Efficient",
+desc: "Energy-saving technology ensures longer lifespan with reduced consumption.",
+},
+{
+title: "Premium Audio",
+desc: "Dolby Digital+ speakers with deep bass and surround sound experience.",
+},
+{
+title: "Elegant Design",
+desc: "Slim bezel, lightweight frame, and wall-mount support for a modern setup.",
+},
 ];
 
 const ProductFeatures = () => (
-    <div className="mt-4">
-        <h5 className="fw-bold mb-3 text-dark border-bottom pb-2">
-            Product Highlights
-        </h5>
-        <div className="row g-3">
-            {features.map((item, i) => (
-                <motion.div
-                    key={i}
-                    className="col-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                    <div className="p-3 rounded-4 shadow-sm border bg-white hover-shadow-sm">
-                        <h6 className="fw-semibold text-primary mb-1">{item.title}</h6>
-                        <p className="text-secondary mb-0 small">{item.desc}</p>
-                    </div>
-                </motion.div>
-            ))}
-        </div>
-    </div>
-);
 
+<div className="mt-4">
+<h5 className="fw-bold mb-3 text-dark border-bottom pb-2">
+Product Highlights
+</h5>
+<div className="row g-3">
+{features.map((item, i) => (
+<motion.div
+key={i}
+className="col-12"
+initial={{ opacity: 0, y: 20 }}
+whileInView={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.4, delay: i * 0.1 }} >
+<div className="p-3 rounded-4 shadow-sm border bg-white hover-shadow-sm">
+<h6 className="fw-semibold text-primary mb-1">{item.title}</h6>
+<p className="text-secondary mb-0 small">{item.desc}</p>
+</div>
+</motion.div>
+))}
+</div>
+</div>
+);
 
         <div className={`${styles.tag} ${styles[item.status.toLowerCase()]}`}>
           {item.status}

@@ -1,18 +1,43 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --main-color: #FEA500;
+  --foreground: #1a1a1a;
+  --main-color: rgb(152, 89, 246);
   --box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 8px;
+
+  /* Font Family Variables */
+  --font-family-primary: var(--font-poppins, "Poppins", sans-serif);
+  --font-family-secondary: var(--font-montserrat, "Montserrat", sans-serif);
+  --font-family-accent: var(--font-inter, "Inter", sans-serif);
+  --font-family-heading: var(--font-montserrat, "Montserrat", sans-serif);
+  --font-family-body: var(--font-poppins, "Poppins", sans-serif);
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  overflow-x: hidden;
 }
 
 a {
-  color: white;
+  color: var(--main-color);
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 
   &:hover {
-    text-decoration: underline;
-    transition: all .5s;
-    color: var(--main-color);
+    color: #ff9600;
+    transition: all 0.3s;
+  }
+
+  &:active {
+    opacity: 0.8;
   }
 }
 
@@ -33,19 +58,212 @@ a {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Avenir', sans-serif;
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
+html {
+  font-family: var(--font-family-body);
+  scroll-behavior: smooth;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Paragraphs and Text */
+p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  color: #333333;
+  font-weight: 400;
+}
+
+p.lead {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  font-weight: 500;
+  color: #444444;
+}
+
+/* Small text */
+small,
+.small {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* Strong and emphasis */
+strong,
+b {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+em,
+i {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Links */
+
+/* Buttons */
+button,
+.btn {
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Lists */
+ul,
+ol {
+  font-family: var(--font-family-body);
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+/* Code */
+code,
+pre {
+  font-family: "Monaco", "Courier New", monospace;
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+/* Blockquotes */
+blockquote {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  border-left: 4px solid var(--main-color);
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: #555555;
+  font-weight: 500;
+}
+
+/* Table */
+table {
+  font-family: var(--font-family-body);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  font-weight: 700;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #efefef;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+from {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+to {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .animate-fadeSlide {
@@ -93,9 +311,11 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right,
-      transparent 50%,
-      var(--main-color, #ffb400) 50%);
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    var(--main-color, #ffb400) 50%
+  );
   background-size: 200% 100%;
   background-position: left bottom;
   z-index: -1;
@@ -105,7 +325,6 @@ body {
 /* animate fill from both sides */
 .onHover:hover::before {
   background-position: right bottom;
-
 }
 
 /* optional: text color change */
@@ -113,7 +332,6 @@ body {
   color: #fff;
   box-shadow: none;
   border: 1px solid var(--main-color) !important;
-
 }
 
 .react-multiple-carousel__arrow {
@@ -154,13 +372,13 @@ body {
 }
 
 .title {
-  @media screen and (max-width:480px) {
+  @media screen and (max-width: 480px) {
     font-size: 20px;
   }
 }
 
 .subtitle {
-  @media screen and (max-width:480px) {
+  @media screen and (max-width: 480px) {
     font-size: 16px !important;
   }
 }
@@ -222,9 +440,6 @@ body {
 .contact-card:hover .icon-wrapper {
   border-radius: 50%;
 }
-
-
-
 
 .home-hero-section .hero-section-container {
   padding: 200px 0;
@@ -304,10 +519,7 @@ body {
   transform: translateX(4px);
 }
 
-
-
 /*Product section in Page.jsx*/
-
 
 .product-card {
   border-radius: 15px;
@@ -330,18 +542,15 @@ body {
 .product-img {
   border-radius: 15px;
   transition: scale 0.3s ease;
-
 }
 
 .titleText {
-  transition: all .3s;
-
+  transition: all 0.3s;
 }
 
 .product-card1:hover .titleText {
   transform: translateY(-30px);
 }
-
 
 .product-card1:hover .product-img {
   scale: 1.03;
@@ -356,7 +565,6 @@ body {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent);
 }
 
-
 .product-overlay1 {
   position: absolute;
   left: 0;
@@ -365,9 +573,6 @@ body {
   width: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent);
 }
-
-
-
 
 .feature-box {
   border: 1px solid #ddd;
@@ -397,8 +602,6 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
-
-
 
 /* Header */
 .custom-header {
@@ -450,12 +653,9 @@ body {
 }
 
 /* Hover effect */
-.nav-item:hover>a {
+.nav-item:hover > a {
   color: #f39c12;
 }
-
-
-
 
 img {
   cursor: pointer;
@@ -465,4 +665,42 @@ img {
   .hide {
     display: none;
   }
+}
+
+/* Target the whole page or a specific container */
+::-webkit-scrollbar {
+  width: 10px; /* Width for vertical scrollbar */
+  height: 10px; /* Height for horizontal scrollbar */
+}
+
+/* The Track (background) */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); /* Very subtle dark track */
+  border-radius: 10px;
+}
+
+/* The Thumb (the moving part) */
+::-webkit-scrollbar-thumb {
+  background: #9859f6; /* Your primary color */
+  background: linear-gradient(
+    180deg,
+    #9859f6 0%,
+    #6366f1 100%
+  ); /* Adds a slight glow */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Creates a padding effect around the thumb */
+  background-clip: content-box;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed; /* Slightly darker violet on hover */
+  background-clip: content-box;
+}
+.rotate-n90 {
+  transform: rotate(-90deg);
+}
+
+.transition-opacity {
+  transition: opacity 0.3s ease-in-out;
 }

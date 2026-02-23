@@ -51,7 +51,7 @@
 
 // //     return (
 // //         <section className="py-5 bg-light position-relative  z-2" id="what-we-do">
-// //             <div className="container text-center">
+// //             <div className="container-fluid text-center">
 // //                 <motion.h2
 // //                     className="fw-bold display-6 mb-3 text-dark"
 // //                     initial={{ opacity: 0, y: -20 }}
@@ -299,94 +299,94 @@ import { motion } from "framer-motion";
 import { FaCouch, FaPuzzlePiece, FaWater } from "react-icons/fa";
 
 const WhatWeDo = () => {
-    const services = [
-        {
-            title: "Smart Benches",
-            icon: <FaCouch size={50} />,
-            color: "primary",
-            desc: "Our smart benches combine technology with comfort — featuring solar charging, Wi-Fi, and eco-friendly materials to enhance modern urban spaces.",
-            delay: 0.1,
-        },
-        {
-            title: "Wooden Toys",
-            icon: <FaPuzzlePiece size={50} />,
-            color: "success",
-            desc: "Handcrafted with care, our wooden toys bring creativity and imagination to life. Safe, durable, and made from responsibly sourced wood.",
-            delay: 0.2,
-        },
-        {
-            title: "Epoxy Creations",
-            icon: <FaWater size={50} />,
-            color: "warning",
-            desc: "From tables to art pieces, our epoxy products blend natural wood and resin artistry — turning ordinary furniture into extraordinary statements.",
-            delay: 0.3,
-        },
-    ];
+  const services = [
+    {
+      title: "Smart Benches",
+      icon: <FaCouch size={50} />,
+      color: "primary",
+      desc: "Our smart benches combine technology with comfort — featuring solar charging, Wi-Fi, and eco-friendly materials to enhance modern urban spaces.",
+      delay: 0.1,
+    },
+    {
+      title: "Wooden Toys",
+      icon: <FaPuzzlePiece size={50} />,
+      color: "success",
+      desc: "Handcrafted with care, our wooden toys bring creativity and imagination to life. Safe, durable, and made from responsibly sourced wood.",
+      delay: 0.2,
+    },
+    {
+      title: "Epoxy Creations",
+      icon: <FaWater size={50} />,
+      color: "warning",
+      desc: "From tables to art pieces, our epoxy products blend natural wood and resin artistry — turning ordinary furniture into extraordinary statements.",
+      delay: 0.3,
+    },
+  ];
 
-    return (
-        <section className="py-5 bg-light position-relative z-2" id="what-we-do">
-            <div className="container text-center">
-                {/* Heading */}
-                <motion.h2
-                    className="fw-bold display-6 mb-3 text-dark"
-                    initial={{ opacity: 0, y: -30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    What We Do
-                </motion.h2>
+  return (
+    <section className="py-5 bg-light position-relative z-2" id="what-we-do">
+      <div className="container-fluid text-center">
+        {/* Heading */}
+        <motion.h2
+          className="fw-bold display-6 mb-3 text-dark"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          What We Do
+        </motion.h2>
 
-                {/* Subtitle */}
-                <motion.p
-                    className="text-muted mb-5 mx-auto"
-                    style={{ maxWidth: "700px" }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    We craft a blend of design, sustainability, and innovation. From smart city furniture to artistic epoxy creations, we bring modern craftsmanship to life.
-                </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          className="text-muted mb-5 mx-auto"
+          style={{ maxWidth: "700px" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          We craft a blend of design, sustainability, and innovation. From smart
+          city furniture to artistic epoxy creations, we bring modern
+          craftsmanship to life.
+        </motion.p>
 
-                {/* Service Items */}
-                <div className="row g-5 justify-content-center">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            className="col-md-4 col-sm-6"
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: service.delay, duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="text-center px-4 py-3">
-                                <motion.div
-                                    className={`text-${service.color} mb-4 d-inline-flex justify-content-center align-items-center`}
-                                    whileHover={{ scale: 1.2, rotate: 10 }}
-                                    transition={{ type: "spring", stiffness: 200 }}
-                                >
-                                    {service.icon}
-                                </motion.div>
-                                <h5 className="fw-bold mb-3">{service.title}</h5>
-                                <p className="text-muted">{service.desc}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Call to Action */}
+        {/* Service Items */}
+        <div className="row g-5 justify-content-center">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="col-md-4 col-sm-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: service.delay, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-center px-4 py-3">
                 <motion.div
-                    className="mt-5"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
+                  className={`text-${service.color} mb-4 d-inline-flex justify-content-center align-items-center`}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
-
+                  {service.icon}
                 </motion.div>
-            </div>
-        </section>
-    );
+                <h5 className="fw-bold mb-3">{service.title}</h5>
+                <p className="text-muted">{service.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <motion.div
+          className="mt-5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        ></motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default WhatWeDo;

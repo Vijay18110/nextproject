@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ✅ Enable the experimental React Compiler
-  experimental: {
-    reactCompiler: true,
-  },
+  // move reactCompiler to top-level per Next.js warning
+  reactCompiler: true,
 
   // ✅ Configure external image domains or patterns
   images: {

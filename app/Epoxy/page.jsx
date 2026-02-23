@@ -10,57 +10,83 @@ import {
 } from "react-icons/fa";
 import ProductCard from "../Shared/ProductCard/ProductCard";
 import Slider from "../ExternalLib/Carousel/Carousel";
-import BannerPage from '../Shared/BannerPage/BannerPage'
-import useWindowWidth from '../Hooks/useWindow.js'
+import BannerPage from "../Shared/BannerPage/BannerPage";
+import useWindowWidth from "../Hooks/useWindow.js";
 export default function EpoxyPage() {
-  const width = useWindowWidth()
+  const width = useWindowWidth();
   const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    laptop: { breakpoint: { max: 1424, min: 1024 }, items: 3, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    desktop: {
+      breakpoint: { max: 3000, min: 1424 },
+      items: 4,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    laptop: {
+      breakpoint: { max: 1424, min: 1024 },
+      items: 3,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
   };
 
   const products = [
     {
       id: 1,
       title: "Epoxy Resin Liquid",
-      description: "High-quality clear epoxy resin for coating and casting projects.",
+      description:
+        "High-quality clear epoxy resin for coating and casting projects.",
       image: "/images/epoxy1.jpg",
       icon: <FaFlask />,
     },
     {
       id: 2,
       title: "Epoxy Pigment Powder",
-      description: "Vibrant powders to add color to epoxy for art and furniture.",
+      description:
+        "Vibrant powders to add color to epoxy for art and furniture.",
       image: "/images/epoxy2.jpg",
       icon: <FaPalette />,
     },
     {
       id: 3,
       title: "Epoxy Flooring Compound",
-      description: "Durable epoxy mix designed for industrial and garage flooring.",
+      description:
+        "Durable epoxy mix designed for industrial and garage flooring.",
       image: "/images/epoxy3.jpg",
       icon: <FaLayerGroup />,
     },
     {
       id: 4,
       title: "UV-Resistant Epoxy",
-      description: "Special epoxy resin that resists yellowing under sunlight exposure.",
+      description:
+        "Special epoxy resin that resists yellowing under sunlight exposure.",
       image: "/images/epoxy4.jfif",
       icon: <FaBrush />,
     },
     {
       id: 5,
       title: "Epoxy Adhesive",
-      description: "Strong adhesive epoxy for bonding wood, metal, and plastics.",
+      description:
+        "Strong adhesive epoxy for bonding wood, metal, and plastics.",
       image: "/images/epoxy5.jpg",
       icon: <FaCubes />,
     },
     {
       id: 6,
       title: "Decorative Epoxy Fillers",
-      description: "Add texture and patterns to epoxy surfaces for artistic finishes.",
+      description:
+        "Add texture and patterns to epoxy surfaces for artistic finishes.",
       image: "/images/epoxy6.jfif",
       icon: <FaFill />,
     },
@@ -91,7 +117,10 @@ export default function EpoxyPage() {
 
   return (
     <>
-      <BannerPage text={"Epoxy Materials"} banner={"/images/bg/2.jpg"} ></BannerPage>
+      <BannerPage
+        text={"Epoxy Materials"}
+        banner={"/images/bg/2.jpg"}
+      ></BannerPage>
       <section className="container-fluid py-5">
         {/* 🔹 Hero Section */}
         <motion.div
@@ -103,7 +132,8 @@ export default function EpoxyPage() {
           <FaCubes size={60} className="text-primary mb-3" />
           <h1 className="fw-bold mb-3">Epoxy Materials</h1>
           <p className="text-muted lead mb-4">
-            Explore our premium epoxy products — ideal for art, flooring, furniture, and industrial applications.
+            Explore our premium epoxy products — ideal for art, flooring,
+            furniture, and industrial applications.
           </p>
           <motion.img
             src="/images/epoxy1.jpg"
@@ -135,12 +165,18 @@ export default function EpoxyPage() {
         <div className="text-center mb-4">
           <h2 className="fw-semibold">Our Epoxy Product Categories</h2>
           <p className="text-muted">
-            Discover our wide range of epoxy materials designed for diverse applications.
+            Discover our wide range of epoxy materials designed for diverse
+            applications.
           </p>
         </div>
 
         <div className="row g-4">
-          <Slider showDot={false} responsive={responsive} partialVisible={true} autoplay={true}>
+          <Slider
+            showDot={false}
+            responsive={responsive}
+            partialVisible={true}
+            autoplay={true}
+          >
             {products.map((product, idx) => (
               <ProductCard item={product} key={idx} />
             ))}
@@ -148,6 +184,5 @@ export default function EpoxyPage() {
         </div>
       </section>
     </>
-
   );
 }

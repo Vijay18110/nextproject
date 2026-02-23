@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import HeroSlider from "./Componets/HeroSection";
+import CoreServices from "./Componets/CoreServices";
+import TimelineSection from "./Componets/TimelineSection";
+import FeaturesSection from "./Componets/FeaturesSection/FeaturesSection";
+import WhyChooseUs from "./Componets/WhyChooseUs/WhyChooseUs";
+import ScrollProgressCircle from "./Componets/ScrollProgressCircle";
 
 // === Static Data ===
 const PRODUCT_DATA_1 = [
@@ -111,7 +116,7 @@ const FullWidthSection = ({ src, alt }) => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.18 }}
-    className="container py-5"
+    className="container-fluid py-5"
   >
     <motion.div variants={imageVariant} className="justify-content-center g-4">
       <Image
@@ -127,7 +132,7 @@ const FullWidthSection = ({ src, alt }) => (
 
 const ProductGrid = ({ data, title, isSmall = false, showDetails = true }) => (
   <motion.section
-    className="container py-5"
+    className="container-fluid py-5"
     variants={sectionVariant}
     initial="hidden"
     whileInView="visible"
@@ -261,10 +266,15 @@ export default function HomePage() {
       <motion.div initial="hidden" animate="visible" variants={sectionVariant}>
         <HeroSlider />
       </motion.div>
+      <ScrollProgressCircle />
 
-      {/* 1. New Arrivals */}
-      <motion.section
-        className="container py-5"
+      <CoreServices />
+      <FeaturesSection />
+      <WhyChooseUs />
+      <TimelineSection />
+
+      {/* <motion.section
+        className="container-fluid py-5"
         variants={sectionVariant}
         initial="hidden"
         whileInView="visible"
@@ -287,9 +297,9 @@ export default function HomePage() {
             <ProductCardItem key={item.id} item={item} />
           ))}
         </motion.div>
-      </motion.section>
+      </motion.section> */}
 
-      {/* 2. Full Width Section Set 1 */}
+      {/*       
       <FullWidthSection
         src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 190348.png"
         alt="Ether 1"
@@ -303,7 +313,7 @@ export default function HomePage() {
         alt="Ether 3"
       />
 
-      {/* 3. Every Collection is a Chapter */}
+     
       <ProductGrid
         data={PRODUCT_DATA_2}
         title="Every Collection is a Chapter"
@@ -311,17 +321,15 @@ export default function HomePage() {
         showDetails={false}
       />
 
-      {/* 4. Full Width Section Set 2 */}
+    
       <FullWidthSection src="/CHESS FIRE/fhfh-1024x576.jpg" alt="Chess Fire" />
       <FullWidthSection
         src="/Most Exclusive Smart Table in the World! SPACE/Screenshot 2024-01-15 194354.png"
         alt="Most Exclusive"
       />
-
-      {/* 5. In the Spotlight */}
+ 
       <ProductGrid data={PRODUCT_DATA_3} title="In the Spotlight" isSmall />
-
-      {/* 6. Full Width Section Set 3 */}
+ 
       <FullWidthSection
         src="/A Smart Table of Epoxy Resin ETHER/Screenshot 2024-01-15 191344.png"
         alt="Ether 4"
@@ -331,7 +339,7 @@ export default function HomePage() {
         alt="Ether 5"
       />
 
-      {/* 7. More Waiting for You */}
+       
       <ProductGrid
         data={PRODUCT_DATA_2}
         title="More Waiting for You"
@@ -339,7 +347,7 @@ export default function HomePage() {
         showDetails={false}
       />
 
-      {/* 8. Full Width Section Set 4 */}
+      
       <FullWidthSection
         src="/Most Exclusive Smart Table in the World! SPACE/Screenshot 2024-01-15 194610.png"
         alt="Space 2"
@@ -349,7 +357,7 @@ export default function HomePage() {
         alt="Ether 6"
       />
 
-      {/* 9. Meet our Design Masters */}
+      
       <ProductGrid
         data={PRODUCT_DATA_2}
         title="Meet our Design Masters"
@@ -357,13 +365,13 @@ export default function HomePage() {
         showDetails={false}
       />
 
-      {/* 10. Final Full Width */}
+       
       <FullWidthSection
         src="/CHESS FIRE/sdsds-1024x576.jpg"
         alt="Chess Final"
       />
 
-      {/* 11. Curated Galleries */}
+       
       <motion.section
         className="position-relative bg-white z-2 min-vh-100"
         variants={sectionVariant}
@@ -371,7 +379,7 @@ export default function HomePage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.18 }}
       >
-        <div className="container">
+        <div className="container-fluid">
           <div className="text-center">
             <motion.h5 variants={listItem} className="mb-4 text-dark">
               Curated Galleries
@@ -392,8 +400,8 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      {/* 12. Features Grid */}
-      <div className="container py-5">
+       
+      <div className="container-fluid py-5">
         <motion.div
           className="row g-4"
           variants={listContainer}
@@ -418,7 +426,7 @@ export default function HomePage() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </main>
   );
 }

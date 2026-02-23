@@ -1,11 +1,15 @@
 "use client";
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 import ContactForm from "./ContactForm";
 import ContactMap from "./ContactMap";
 import ContactInfoCard from "./ContactInfoCard ";
 import BannerPage from "../Shared/BannerPage/BannerPage";
-
 
 const contactInfo = [
   {

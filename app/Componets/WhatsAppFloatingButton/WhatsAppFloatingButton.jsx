@@ -19,10 +19,10 @@ import "./styles.css";
  */
 
 export default function WhatsAppFloatingButton({
-  phone = "9628554907",
+  phone = "7715857501",
   message = "Hello! I would like to chat.",
   size = 56,
-  bottom = "24px",
+  bottom = "90px",
   right = "24px",
 }) {
   // sanitize phone to digits only for wa.me
@@ -77,8 +77,12 @@ export default function WhatsAppFloatingButton({
           cursor: "pointer",
           transition: "transform .15s ease, box-shadow .15s ease",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-3px)")}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.transform = "translateY(-3px)")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.transform = "translateY(0)")
+        }
       >
         {/* WhatsApp SVG */}
         <svg
@@ -121,8 +125,6 @@ export default function WhatsAppFloatingButton({
       >
         Chat on WhatsApp
       </div>
-
-   
     </div>
   );
 }

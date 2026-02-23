@@ -10,17 +10,37 @@ import {
 } from "react-icons/fa";
 import ProductCard from "../Shared/ProductCard/ProductCard";
 import Slider from "../ExternalLib/Carousel/Carousel";
-import BannerPage from '../Shared/BannerPage/BannerPage'
-import useWindowWidth from '../Hooks/useWindow.js'
+import BannerPage from "../Shared/BannerPage/BannerPage";
+import useWindowWidth from "../Hooks/useWindow.js";
 
 export default function ToysPage() {
-  const width = useWindowWidth()
+  const width = useWindowWidth();
 
   const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    laptop: { breakpoint: { max: 1424, min: 1024 }, items: 3, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    desktop: {
+      breakpoint: { max: 3000, min: 1424 },
+      items: 4,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    laptop: {
+      breakpoint: { max: 1424, min: 1024 },
+      items: 3,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
   };
 
   const products = [
@@ -34,7 +54,8 @@ export default function ToysPage() {
     {
       id: 2,
       title: "Robotic Kit",
-      description: "Build and program robots to learn STEM skills in a fun way.",
+      description:
+        "Build and program robots to learn STEM skills in a fun way.",
       image: "/images/toy2.avif",
       icon: <FaRobot />,
     },
@@ -55,7 +76,8 @@ export default function ToysPage() {
     {
       id: 5,
       title: "DIY Art & Craft Kit",
-      description: "Encourages creativity with paints, brushes, and craft supplies.",
+      description:
+        "Encourages creativity with paints, brushes, and craft supplies.",
       image: "/images/toy5.avif",
       icon: <FaPaintBrush />,
     },
@@ -93,7 +115,7 @@ export default function ToysPage() {
 
   return (
     <>
-      <BannerPage text={"Toys"} banner={"./images/toy4.avif"} ></BannerPage>
+      <BannerPage text={"Toys"} banner={"./images/toy4.avif"}></BannerPage>
       <section className="container-fluid py-5">
         {/* 🔹 Hero Section */}
         <motion.div
@@ -105,7 +127,8 @@ export default function ToysPage() {
           <FaPuzzlePiece size={60} className="text-primary mb-3" />
           <h1 className="fw-bold mb-3">Creative & Educational Toys</h1>
           <p className="text-muted lead mb-4">
-            Fun and educational toys designed to inspire creativity, learning, and STEM skills for children of all ages.
+            Fun and educational toys designed to inspire creativity, learning,
+            and STEM skills for children of all ages.
           </p>
           <motion.img
             whileHover={{ scale: 1.03 }}
@@ -143,7 +166,12 @@ export default function ToysPage() {
         </div>
 
         <div className="row g-4">
-          <Slider showDot={false} responsive={responsive} partialVisible={true} autoplay={true}>
+          <Slider
+            showDot={false}
+            responsive={responsive}
+            partialVisible={true}
+            autoplay={true}
+          >
             {products.map((product, idx) => (
               <ProductCard item={product} key={idx} />
             ))}
@@ -151,6 +179,5 @@ export default function ToysPage() {
         </div>
       </section>
     </>
-
   );
 }

@@ -7,19 +7,39 @@ import {
   FaLeaf,
   FaLightbulb,
 } from "react-icons/fa";
-import ProductCard from '../Shared/ProductCard/ProductCard'
-import Slider from '../ExternalLib/Carousel/Carousel'
-import BannerPage from '../Shared/BannerPage/BannerPage'
-import useWindowWidth from '../Hooks/useWindow.js'
+import ProductCard from "../Shared/ProductCard/ProductCard";
+import Slider from "../ExternalLib/Carousel/Carousel";
+import BannerPage from "../Shared/BannerPage/BannerPage";
+import useWindowWidth from "../Hooks/useWindow.js";
 
 export default function SolarBenchPage() {
-  const width = useWindowWidth()
+  const width = useWindowWidth();
 
   const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1424 }, items: 4, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    laptop: { breakpoint: { max: 1424, min: 1024 }, items: 3, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 2, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1, slidesToSlide: 1, partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2 },
+    desktop: {
+      breakpoint: { max: 3000, min: 1424 },
+      items: 4,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    laptop: {
+      breakpoint: { max: 1424, min: 1024 },
+      items: 3,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+      partialVisibilityGutter: width > 480 ? 70 : width > 402 ? 30 : 2,
+    },
   };
   const products = [
     {
@@ -89,7 +109,10 @@ export default function SolarBenchPage() {
 
   return (
     <>
-      <BannerPage text={"Solar-Powered Smart Benches"} banner={"./images/solar-bench3.jpg"} ></BannerPage>
+      <BannerPage
+        text={"Solar-Powered Smart Benches"}
+        banner={"./images/solar-bench3.jpg"}
+      ></BannerPage>
       <section className="container-fluid py-5">
         {/* 🔹 Hero Section */}
         <motion.div
@@ -101,9 +124,9 @@ export default function SolarBenchPage() {
           <FaSolarPanel size={60} className="text-primary mb-3" />
           <h1 className="fw-bold mb-3">Solar-Powered Smart Benches</h1>
           <p className="text-muted lead mb-4">
-            Sustainable, tech-enabled benches powered by solar energy — featuring
-            charging ports, ambient LED lights, and IoT sensors for modern urban
-            spaces.
+            Sustainable, tech-enabled benches powered by solar energy —
+            featuring charging ports, ambient LED lights, and IoT sensors for
+            modern urban spaces.
           </p>
           <motion.img
             whileHover={{ scale: 1.03 }}
@@ -136,13 +159,18 @@ export default function SolarBenchPage() {
         <div className="text-center mb-4">
           <h2 className="fw-semibold">Our Solar Bench Models</h2>
           <p className="text-muted">
-            Explore a range of solar-powered benches designed for parks, campuses,
-            and smart city projects.
+            Explore a range of solar-powered benches designed for parks,
+            campuses, and smart city projects.
           </p>
         </div>
 
         <div className="row g-4">
-          <Slider showDot={false} responsive={responsive} partialVisible={true} autoplay={true}>
+          <Slider
+            showDot={false}
+            responsive={responsive}
+            partialVisible={true}
+            autoplay={true}
+          >
             {products.map((product, idx) => (
               <ProductCard item={product} key={idx} />
             ))}

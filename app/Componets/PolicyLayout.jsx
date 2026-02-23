@@ -6,9 +6,9 @@ export default function PolicyLayout({ title, subtitle, children }) {
     <main className="bg-white min-vh-100">
       {/* Header Section */}
       <div className="bg-dark py-5 mb-5 text-center">
-        <div className="container py-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: -10 }} 
+        <div className="container-fluid py-4">
+          <motion.h1
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="display-4 fw-bold text-white mb-2"
           >
@@ -18,12 +18,10 @@ export default function PolicyLayout({ title, subtitle, children }) {
         </div>
       </div>
 
-      <div className="container pb-5">
+      <div className="container-fluid pb-5">
         <div className="row justify-content-center">
           <div className="col-lg-9 col-xl-8">
-            <div className="policy-content text-dark">
-              {children}
-            </div>
+            <div className="policy-content text-dark">{children}</div>
           </div>
         </div>
       </div>

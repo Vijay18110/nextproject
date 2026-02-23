@@ -1,0 +1,31 @@
+.contactBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 6px 20px;
+  border-bottom: 1px dashed #dee2e6;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contactBar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.contactBar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .contactBar {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+}

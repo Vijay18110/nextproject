@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { MainCategories } from '../../StaticData/MainCategoriesData.js'
+import { MainCategories } from "../../StaticData/MainCategoriesData.js";
 const MainProducts = () => {
   const router = useRouter();
   return (
     <section className="py-5  position-relative  bg-light">
-      <div className="container ">
-        <h2 className="text-center mb-5 fw-bold text-dark">Featured Products</h2>
+      <div className="container-fluid ">
+        <h2 className="text-center mb-5 fw-bold text-dark">
+          Featured Products
+        </h2>
 
         <div className="row g-4">
           {MainCategories.map((product) => (
@@ -38,9 +40,6 @@ const MainProducts = () => {
             </div>
           ))}
         </div>
-
-
-
       </div>
     </section>
   );
