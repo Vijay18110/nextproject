@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useWindowWidth from '../../Hooks/useWindow.js'
-const Slider = ({ children, responsive, showDot = true, onSlideChange,partialVisible,autoplay }) => {
+const Slider = ({ children, responsive, showDot = false, onSlideChange,partialVisible,autoplay }) => {
   const defaultResponsive = {
     desktop: { breakpoint: { max: 3000, min: 1424 }, items: 1, slidesToSlide: 1 },
     laptop: { breakpoint: { max: 1424, min: 1024 }, items: 1, slidesToSlide: 1 },
@@ -15,7 +15,7 @@ const Slider = ({ children, responsive, showDot = true, onSlideChange,partialVis
     <Carousel
       swipeable={true}
       draggable={true}
-      // showDots={showDot}
+      showDots={showDot}
       responsive={responsive || defaultResponsive}
       ssr={true}
     partialVisible={partialVisible}

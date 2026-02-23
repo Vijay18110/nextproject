@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
 import { FaStar } from "react-icons/fa";
 import { FiGitPullRequest } from "react-icons/fi";
 import Image from "next/image";
@@ -11,8 +10,6 @@ import ImageZoomRight from "./ImageZoomInRight";
 import MainPortal from "../Componets/MainPortal/MainPortal";
 import Button from "../Shared/Button";
 import useWindowWidth from "../Hooks/useWindow";
-
-
 const productImages = [
     "/images/all/1.jpg",
     "/images/all/2.jpg",
@@ -20,7 +17,6 @@ const productImages = [
     "/images/all/4.jpg",
     "/images/all/6.jpg",
 ];
-
 const infoCards = [
     {
         id: 1,

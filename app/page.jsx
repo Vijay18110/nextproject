@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import HeroSlider from "./Componets/HeroSection";
+import CoreServices from "./Componets/CoreServices";
 
 // === Static Data ===
 const PRODUCT_DATA_1 = [
@@ -120,6 +121,8 @@ export default function HomePage() {
       <motion.div initial="hidden" animate="visible" variants={sectionVariant}>
         <HeroSlider />
       </motion.div>
+
+      <CoreServices />
 
       {/* 1. New Arrivals */}
       <motion.section 

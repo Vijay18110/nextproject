@@ -13,9 +13,11 @@ import useWindowWidth from "../Hooks/useWindow";
 import { BsTicketDetailedFill } from "react-icons/bs";
  import {motion} from 'framer-motion'
 import { useRouter } from "next/navigation";
+import StickyContactBar from "./StickyContactBar";
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const menuItems = [
     // "New",
     // "Collections",
@@ -27,7 +29,7 @@ export default function Header() {
     // "Shop By Style",
     // "Stores",
     {name:"Home",link:"/"},
-    {name:"Product",link:"/Products"},
+    {name:"Our Products",link:"/Products"},
     {name:"About Us",link:"/About"},
     {name:"Contact Us",link:"/Contact"},
   ];
@@ -47,6 +49,7 @@ const router=useRouter();
   return (
     <>
       {/* DARK OVERLAY */}
+      
       {sidebarOpen && (
         <div className={styles.overlay} onClick={() => setSidebarOpen(false)} />
       )}
@@ -58,19 +61,46 @@ const router=useRouter();
         </button>
 
         <ul className={styles.mobileList}>
-          {menuItems.map((item) => (
-            <li key={item?.name} className={styles.mobileItem}>
-              <Link onClick={() => setSidebarOpen(false)} className="text-dark" href={item?.link}>
-                {item?.name}
-              </Link>
-            </li>
-          ))}
+          <li className={styles.mobileItem}>
+            <Link onClick={() => setSidebarOpen(false)} className="text-dark" href="/">
+              Home
+            </Link>
+          </li>
+          <li className={styles.mobileItem} style={{position:'relative', paddingBottom: mobileProductsOpen ? 0 : undefined}}>
+            <div
+              style={{display:'flex', alignItems:'center', justifyContent:'space-between', cursor:'pointer'}}
+              onClick={() => setMobileProductsOpen((v) => !v)}
+            >
+              <span>Our Products</span>
+              <FaAngleUp size={16} style={{transform: mobileProductsOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s'}} />
+            </div>
+            {mobileProductsOpen && (
+              <ul className={styles.mobileSubMenu}>
+                <li className={styles.mobileSubMenuItem} onClick={()=>{setSidebarOpen(false); handleNavigate("/Smart-Bench")}}>AI SMART BENCH</li>
+                <li className={styles.mobileSubMenuItem} onClick={()=>{setSidebarOpen(false); handleNavigate("/Toys")}}>Wooden Toys</li>
+                <li className={styles.mobileSubMenuItem} onClick={()=>{setSidebarOpen(false); handleNavigate("/Products?cat=furniture-epoxy")}}>FURNITURE & EPOXY FURNITURE</li>
+                <li className={styles.mobileSubMenuItem} onClick={()=>{setSidebarOpen(false); handleNavigate("/Epoxy")}}>epoxy flooring</li>
+              </ul>
+            )}
+          </li>
+          <li className={styles.mobileItem}>
+            <Link onClick={() => setSidebarOpen(false)} className="text-dark" href="/About">
+              About Us
+            </Link>
+          </li>
+          <li className={styles.mobileItem}>
+            <Link onClick={() => setSidebarOpen(false)} className="text-dark" href="/Contact">
+              Contact Us
+            </Link>
+          </li>
         </ul>
       </aside>
       {/* HEADER */}
       <header className={styles.header}>
-        <nav className="container-xl  container-fluid">
-          <div className=" d-flex align-items-center  justify-content-between">
+              <StickyContactBar />
+
+        <nav className="   container-fluid">
+          <div className=" d-flex align-items-center  ">
             <div className="">
               <Link href="/" className={styles.logo}>
                 {/* DTALE<strong>MODERN</strong> 
@@ -90,36 +120,47 @@ const router=useRouter();
               </ul>
             </div> */}
             <ul className={`${styles.navMenu} gap-4`}>
-              <li  onClick={()=>handleNavigate("/")} className={styles.navItem}><FaHome className="" size={13}/> Home</li>
-              <li onClick={()=>handleNavigate("/Products")} className={styles.navItem}> <FaProductHunt/>    Products</li>
-              <li onClick={()=>handleNavigate("/About")} className={styles.navItem}><BsTicketDetailedFill  />    About Us</li>
-              <li onClick={()=>handleNavigate("/Contact")} className={styles.navItem}><IoMdContact />    Contact Us</li>  
+              <li onClick={()=>handleNavigate("/")} className={styles.navItem}>
+                Home
+              </li>
+              <li
+                className={styles.navItem}
+                onMouseEnter={() => setActiveMenu("products")}
+                onMouseLeave={() => setActiveMenu(null)}
+                style={{position:'relative'}}
+              >
+                Our Products
+                <FaAngleUp size={16} className={styles.downIcon} style={{transform: activeMenu === "products" ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s'}} />
+                {activeMenu === "products" && (
+                  <div className={styles.megamnauCont} style={{position:'absolute', left:0, top:'100%', minWidth:220, zIndex:1000}}>
+                    <div className={styles.megaMenu} style={{padding:'12px 36px', borderRadius:12, minWidth:220}}>
+                      <div>
+                        <div className={styles.col}>
+                          <p onClick={()=>handleNavigate("/Smart-Bench")} style={{cursor:'pointer'}}>AI SMART BENCH</p>
+                          <p onClick={()=>handleNavigate("/Toys")} style={{cursor:'pointer'}}>Wooden Toys</p>
+                          <p onClick={()=>handleNavigate("/Products?cat=furniture-epoxy")} style={{cursor:'pointer'}}>FURNITURE & EPOXY FURNITURE</p>
+                          <p onClick={()=>handleNavigate("/Epoxy")} style={{cursor:'pointer'}}>epoxy flooring</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </li>
+              <li onClick={()=>handleNavigate("/About")} className={styles.navItem}>
+                About Us
+              </li>
+              <li onClick={()=>handleNavigate("/Contact")} className={styles.navItem}>
+                Contact Us
+              </li>
             </ul>
 
             {/* <div className={` ${(width == 992 || width < 992) ? 'col-8' : 'col-3'}`}> */}
               <ul className={styles.navMenuRight}>
                 {/* <li className={styles.navItem1} onClick={() => setOpenForm(true)}> <FaRegUser className="mb-1" size={15} /> Login</li> */}
-<motion.li 
-    className={styles.navItem1} 
-    whileHover={{ y: -2 }}
-    onClick={() => setOpenForm(true)}
-  >
-    <a href="tel:+919628554907" className={styles.link}>
-      <FaPhone className="me-2" size={12} />
-      91+ 9628554907
-    </a>
-  </motion.li>
+ 
 
   {/* Email Link */}
-  <motion.li 
-    className={styles.navItem1}
-    whileHover={{ y: -2 }}
-  >
-    <a href="mailto:info@infiniox.com" className={styles.link}>
-      <FaRegEnvelope size={12} className="me-2" />
-      info@infiniox.com
-    </a>
-  </motion.li>
+   
                 <li className={styles.navItem1}>
                   <button
                     className={styles.mobileMenuBtn}

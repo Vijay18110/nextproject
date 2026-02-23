@@ -84,7 +84,7 @@ const HeroSlider = () => {
 
   return (
     <div className="w-100 position-sticky top-0">
-      <Slider onSlideChange={handleSlideChange}>
+      <Slider onSlideChange={handleSlideChange} showDot={true}>
         {sliderData.map((slide, index) => (
           <section
             key={slide.id}
