@@ -91,12 +91,20 @@ const Footer = () => {
             </div>
           </div>
         </div> */}
-
-        <div className={` ${styles.footerBottom}`}>
-          <p className="m-0 py-2 text-center">
-            © {2025} Infiniox Private Limited
+          <div className=" d-flex justify-content-between align-items-center">
+            <div className={` ${styles.footerBottom}`}>
+          <p className="m-0  text-center">
+            
+           © {2025} Infiniox Private Limited. All rights reserved.
           </p>
-        </div>
+        </div> 
+    <div className={`d-flex justify-content-end pt-3
+        ${styles.footerIcons}`}>
+    <i className={styles.iconBox}>      <FaYoutube /></i>
+    <i className={styles.iconBox}>  <FaFacebookF /></i>
+    <i className={styles.iconBox}>    <FaInstagram /></i>
+    </div>
+    </div>
       </div>
     </footer>
   );
