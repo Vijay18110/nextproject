@@ -9,7 +9,8 @@ import TimelineSection from "./Componets/TimelineSection";
 import FeaturesSection from "./Componets/FeaturesSection/FeaturesSection";
 import WhyChooseUs from "./Componets/WhyChooseUs/WhyChooseUs";
 import ScrollProgressCircle from "./Componets/ScrollProgressCircle";
-
+import CoreServices1 from './Componets/CoreServices/CoreServices'
+import OurServices from "./Componets/our-services.js";
 // === Static Data ===
 const PRODUCT_DATA_1 = [
   {
@@ -267,9 +268,10 @@ export default function HomePage() {
         <HeroSlider />
       </motion.div>
       <ScrollProgressCircle />
-
       <CoreServices />
       <FeaturesSection />
+      <OurServices  />
+        {/* <CoreServices1 /> */}
       <WhyChooseUs />
       <TimelineSection />
 

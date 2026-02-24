@@ -1,0 +1,21 @@
+.hrLine {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: 0.25;
+  }
+  .width100{
+    width: 100%;
+  }
+  .fontSize20{
+    font-size:xx-large;
+  }
+.title {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 60px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #222;
+}
