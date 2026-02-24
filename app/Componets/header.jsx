@@ -202,9 +202,8 @@ export default function Header() {
       {/* HEADER */}
       <header className={styles.header}>
         <StickyContactBar />
-
-        <nav className="   container-fluid">
-          <div className=" d-flex align-items-center justify-content-between">
+        <nav className="container-fluid">
+          <div className="d-flex align-items-center justify-content-between">
             {/* <div className="col-6" style={width < 992 ? { display: "none" } : { display: "block" }}>
               <ul className={styles.navMenu}>
                 <li className={styles.navItem1}>Best Sellers</li>
@@ -213,7 +212,7 @@ export default function Header() {
                 <li className={styles.navItem1}>Partner Program</li>
               </ul>
             </div> */}
-            <div className="  d-flex align-items-center">
+            <div className="d-flex align-items-center">
               <div className="">
                 <Link href="/" className={styles.logo}>
                   {/* DTALE<strong>MODERN</strong>

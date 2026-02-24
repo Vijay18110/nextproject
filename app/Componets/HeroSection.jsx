@@ -180,7 +180,7 @@ const HeroSlider = () => {
   return (
     <div
       className="w-100 position-relative mb-3"
-      style={{ height: "90vh", overflow: "hidden" }}
+      // style={{ height: "110vh", overflow: "hidden" }}
     >
       <Slider onSlideChange={handleSlideChange}>
         {sliderData.map((slide, index) => (
