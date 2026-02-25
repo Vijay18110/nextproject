@@ -1,12 +1,7 @@
 import React from "react";
 import styles from "./CoreServices.module.css";
-import {
-  SmartBenchIcon,
-  ToysIcon,
-  EpoxyFurnitureIcon,
-  EpoxyFlooringIcon,
-} from "./CoreServicesIcons";
 
+// Keeping static data outside the component prevents recreation on every render
 const services = [
   {
     title: "Smart Solar Benches",
@@ -23,9 +18,7 @@ const services = [
   {
     title: "Epoxy Furniture",
     img: "/images/epoxy-flooring.png",
-
     icon: "/images/i2.png",
-
     desc: "Premium artistic pieces blending natural wood with contemporary epoxy integration",
   },
   {
@@ -36,24 +29,45 @@ const services = [
   },
 ];
 
+// Extracted card component for cleaner, more readable code
+const ServiceItem = ({ title, img, icon, desc }) => (
+  // Using <article> is semantically better for independent blocks of content
+  <article className={styles.serviceWrapper}>
+    <div className={styles.serviceImageBox}>
+      <div className={styles.imgFrame}>
+        {/* Added lazy loading & async decoding for performance */}
+        <img
+          src={img}
+          alt={title}
+          className={styles.serviceImage}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <div className={styles.serviceCard}>
+      <div className={styles.serviceIcon}>
+        <img src={icon} alt={`${title} icon`} loading="lazy" decoding="async" />
+      </div>
+      <h3 className={styles.serviceTitle}>{title}</h3>
+      <p className={styles.serviceDesc}>{desc}</p>
+    </div>
+  </article>
+);
+
 export default function CoreServices() {
   return (
-    <section className={`container-fluid ${styles.coreServicesSection}`}>
-      <h2 className={styles.heading}>OUR CORE SERVICES</h2>
+    <section
+      className={`container-fluid ${styles.coreServicesSection}`}
+      aria-labelledby="services-heading"
+    >
+      <h2 id="services-heading" className={styles.heading}>
+        Our Core Services
+      </h2>
       <div className={styles.servicesContainer}>
-        {services.map((s) => (
-          <div className={styles.serviceWrapper} key={s.title}>
-            <div className={styles.serviceImageBox}>
-              <img src={s.img} alt={s.title} className={styles.serviceImage} />
-            </div>
-            <div className={styles.serviceCard}>
-              <div className={styles.serviceIcon}>
-                <img src={s.icon} alt={s.title} />
-              </div>
-              <h3 className={styles.serviceTitle}>{s.title}</h3>
-              <p className={styles.serviceDesc}>{s.desc}</p>
-            </div>
-          </div>
+        {services.map((service) => (
+          <ServiceItem key={service.title} {...service} />
         ))}
       </div>
     </section>
