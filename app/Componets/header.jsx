@@ -199,19 +199,10 @@ export default function Header() {
           </li>
         </ul>
       </aside>
-      {/* HEADER */}
       <header className={styles.header}>
         <StickyContactBar />
-        <nav className="container-fluid">
           <div className="d-flex align-items-center justify-content-between">
-            {/* <div className="col-6" style={width < 992 ? { display: "none" } : { display: "block" }}>
-              <ul className={styles.navMenu}>
-                <li className={styles.navItem1}>Best Sellers</li>
-                <li className={styles.navItem1}>Design Masters</li>
-                <li className={styles.navItem1}>Free Design Services</li>
-                <li className={styles.navItem1}>Partner Program</li>
-              </ul>
-            </div> */}
+            
             <div className="d-flex align-items-center">
               <div className="">
                 <Link href="/" className={styles.logo}>
@@ -221,7 +212,7 @@ export default function Header() {
                     className=""
                     style={{
                       width: "100px",
-                      height: "80px",
+                      height: "50px",
                     }}
                     src="/WhatsApp Image 2026-02-22 at 5.10.09 PM.jpeg"
                     alt=""
@@ -362,20 +353,10 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            {/* <div className={` ${(width == 992 || width < 992) ? 'col-8' : 'col-3'}`}> */}
-            <ul className={styles.navMenuRight}>
-              {/* Sign In button (desktop) */}
-              <li
-                className={styles.navItem1}
-                style={{
-                  marginRight: 8,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                }}
-              >
-                <button
-                  className={`btn btn-primary rounded-pill px-4 py-2 ${signInShadow ? styles.signInBtnShadow : styles.signInBtnNoShadow}`}
+      <div className="d-flex align-items-center gap-5 me-3">
+
+             <button
+                  className={`btn btn-primary rounded-pill  ${signInShadow ? styles.signInBtnShadow : styles.signInBtnNoShadow}`}
                   style={{
                     background: "linear-gradient(135deg, #8b5cf6, #6d28d9)",
                     color: "white",
@@ -384,91 +365,15 @@ export default function Header() {
                 >
                   Sign In
                 </button>
-              </li>
-
-              {/* Email Link */}
-
-              <li className={styles.navItem1}>
-                <button
+                  <button
                   className={styles.mobileMenuBtn}
                   onClick={() => setSidebarOpen(true)}
                 >
                   ☰
                 </button>
-              </li>
-            </ul>
-          </div>
-          {/* </div> */}
-
-          {/* {openForm && <MainPortal handleCloseModal={() => setOpenForm(false)}  >
-            <Login
-              onSubmit={handleFormSubmit}
-              onClose={() => setOpenForm(false)}
-            />
-          </MainPortal>} */}
-          {/* DESKTOP MENU */}
-
-          {/* <ul className={styles.navMenu}>
-            {menuItems.map((item) => (
-              <li
-                key={item}
-                className={styles.navItem}
-                onMouseEnter={() => setActiveMenu(item)}
-                onMouseLeave={() => setActiveMenu(null)}
-              >
-                <small className={styles.menuWithIcon}>
-                  {item}
-                  {item === "Decor" && <FaAngleUp size={16} className={styles.downIcon} />}
-                </small>
-
-                {activeMenu === item && item === "Decor" && (
-                  <div className={styles.megamnauCont}>
-                    <div className={styles.megaMenu}>
-                      <div className={styles.megaGrid}>
-                        <div className={styles.col}>
-                          <h4>Mirrors</h4>
-                          <p>Wall Mirrors</p>
-                          <p>Floor Mirrors</p>
-                          <p>Decorative Mirrors</p>
-                        </div>
-
-                        <div className={styles.col}>
-                          <h4>Decorative Objects</h4>
-                          <p>Decor Pieces</p>
-                          <p>Bookends</p>
-                          <p>Lanterns</p>
-                          <p>Candle Holders</p>
-                          <p>Planters</p>
-                        </div>
-
-                        <div className={styles.col}>
-                          <h4>Storages</h4>
-                          <p>Fabric Racks</p>
-                          <p>Bags & Baskets</p>
-                          <p>Clock</p>
-                        </div>
-
-                        <div className={styles.col}>
-                          <h4>Home Fragrance</h4>
-                          <p>Pots</p>
-                          <p>Candles</p>
-                        </div>
-
-                        <div className={styles.col}>
-                          <h4>Art</h4>
-                          <p>Paintings</p>
-                          <p>Sculptures</p>
-                          <p>Wall Decor</p>
-                        </div>
-
-                      </div>
-                    </div>
                   </div>
-                )}
-              </li>
-            ))}
-          </ul> */}
-        </nav>
+          </div>
+ 
       </header>
     </>
   );

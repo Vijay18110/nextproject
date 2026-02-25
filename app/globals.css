@@ -704,3 +704,14 @@ img {
 .transition-opacity {
   transition: opacity 0.3s ease-in-out;
 }
+/* Make carousel dots smaller and cleaner */
+.slick-dots {
+  bottom: 20px !important;
+}
+.slick-dots li button:before {
+  color: white !important;
+  font-size: 10px !important;
+}
+.slick-dots li.slick-active button:before {
+  color: #82bc4f !important;
+}

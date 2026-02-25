@@ -1,4 +1,4 @@
-/* Mobile Submenu Styles */
+/* 
 .mobileSubMenu {
    
   
@@ -26,8 +26,36 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
+} */
  
+
+
+
+.mobileSubMenu {
+  padding-left: 15px; /* Indent slightly */
+  margin: 0;
+}
+
+.mobileSubMenuItem {
+  color: #333;
+  font-size: 0.9rem; /* Smaller than the "medium" default */
+  border-bottom: 1px solid #f9f9f9;
+  font-weight: 400; /* Thinner */
+  margin: 0; 
+  padding: 8px 0; /* Tighter spacing */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+
+
+
+
+
+
 /* HEADER */
 .header {
   width: 100%;
@@ -52,15 +80,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-items: center;
   margin-bottom: 0px;
 }
 
 .navMenuRight {
   list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 15px;
 }
 
@@ -211,7 +236,6 @@
   color: #444;
   cursor: pointer;
   transition: color 0.3s ease;
-  margin-top: 15px;
 }
 
 /* Ensure links inherit the parent's color and remove underlines */
